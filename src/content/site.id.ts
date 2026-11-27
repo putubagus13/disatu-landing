@@ -5,7 +5,7 @@ export const siteId: SiteContent = {
   meta: {
     homeTitle: "Disatu — Jasa Pembuatan Website & Aplikasi",
     homeDescription:
-      "Disatu membuat website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce, plus desain web dan wireframe, sesuai kebutuhan bisnismu.",
+      "Jasa pembuatan website company profile, aplikasi mobile, sistem backend, dan web app e-commerce, plus desain web dan wireframe sesuai kebutuhan bisnismu.",
     aboutTitle: "Tentang Disatu",
     aboutDescription:
       "Disatu menyediakan jasa pembuatan website, aplikasi mobile, sistem backend, dan web app. Berdiri sejak 2024, dengan Putu Bagus Raditya sebagai Co-Founder.",

@@ -5,7 +5,7 @@ export const siteEn: SiteContent = {
   meta: {
     homeTitle: "Disatu — Website & App Development",
     homeDescription:
-      "Disatu builds company profile websites, mobile apps, backend systems, and web apps such as e-commerce, plus web and wireframe design, shaped around your business.",
+      "Disatu builds company websites, mobile apps, backend systems and e-commerce web apps, plus web and wireframe design, shaped around your business.",
     aboutTitle: "About Disatu",
     aboutDescription:
       "Disatu builds websites, mobile apps, backend systems, and web apps. Founded in 2024, with Putu Bagus Raditya as Co-Founder.",

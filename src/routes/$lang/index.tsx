@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { alternateLinks } from '@/i18n/alternates'
+import { seoHead } from '@/seo/head'
+import { organizationGraph } from '@/seo/structured-data'
+import { SITE_URL } from '@/seo/site-url'
 import { getContent } from '@/content'
 import { isLang } from '@/i18n/lang'
 import { Hero } from '@/components/sections/hero'
@@ -13,17 +15,8 @@ import { ContactCta } from '@/components/sections/contact-cta'
 export const Route = createFileRoute('/$lang/')({
   head: ({ params }) => {
     const lang = isLang(params.lang) ? params.lang : 'id'
-    const { meta } = getContent(lang)
-    return {
-      meta: [
-        { title: meta.homeTitle },
-        { name: 'description', content: meta.homeDescription },
-        { property: 'og:title', content: meta.homeTitle },
-        { property: 'og:description', content: meta.homeDescription },
-        { property: 'og:locale', content: lang === 'id' ? 'id_ID' : 'en_US' },
-      ],
-      links: alternateLinks(''),
-    }
+    const c = getContent(lang)
+    return seoHead({ origin: SITE_URL, lang, sub: '', title: c.meta.homeTitle, description: c.meta.homeDescription, jsonLd: organizationGraph(SITE_URL, lang, c) })
   },
   component: Home,
 })

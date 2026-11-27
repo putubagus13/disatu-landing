@@ -10,6 +10,8 @@ framer-motion, Vitest. Node 22.
 |---|---|
 | `/{lang}` | Hero, services, portfolio, five-step work process, products (ChartLab), about teaser, contact |
 | `/{lang}/about` | About Disatu and its founder |
+| `/sitemap.xml` | Every indexable page in both languages, with language alternates (built from `VITE_SITE_URL` and `src/seo/pages.ts`) |
+| `/robots.txt` | Lets every crawler in and points at the sitemap |
 | `/{lang}/chartlab` | Old address of the embedded ChartLab app: a redirect (307) to the app page on the ChartLab landing |
 
 ## Run it
@@ -25,9 +27,10 @@ npm test
 
 | Variable | Needed | Default | What it is |
 |---|---|---|---|
+| `VITE_SITE_URL` | **required for production builds** | `http://localhost:3001` in dev | This site's own public address (e.g. `https://www.disatu.xyz`). It is the base of every canonical link, hreflang alternate, share URL, `sitemap.xml` and `robots.txt`. |
 | `VITE_CHARTLAB_LANDING_URL` | **required for production builds** | `http://localhost:3000` in dev | The ChartLab landing. The product card links to `<url>/<lang>`, and `/{lang}/chartlab` redirects to `<url>/<lang>/chartlab`. |
 
-Use the **full URL including `https://`** (e.g. `https://chartlab-landing.vercel.app`), and set it for both the
+Use the **full URL including `https://`** (e.g. `https://chartlab-landing.vercel.app`), and set each for both the
 Production and Preview environments. `npm run build` stops when it is missing or is not an absolute http(s) URL (a bare
 `chartlab-landing.vercel.app` is rejected), so a site whose links to ChartLab would be broken never ships.
 
@@ -38,6 +41,14 @@ Production and Preview environments. `npm run build` stops when it is missing or
    production URL.
 3. Then merge and deploy this site. Doing it in this order keeps the already-shared `/id/chartlab` and `/en/chartlab`
    links working: they redirect to the live ChartLab app page.
+
+## SEO
+
+`src/seo/` owns what search engines and link previews see: `head.ts` (canonical, hreflang, Open Graph and Twitter
+cards, JSON-LD), `structured-data.ts` (the company as Schema.org data, built only from the content files),
+`sitemap.ts`, `robots.ts`, and `pages.ts` (the indexable pages). A new public page goes into `pages.ts` and uses
+`seoHead()` in its route. `/{lang}/chartlab` is left out of the sitemap because it redirects. The share image is
+`public/og-image.png` (1200x630).
 
 ## Content rules
 

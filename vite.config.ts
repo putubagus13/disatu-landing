@@ -12,7 +12,7 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   // nitro() turns the server build into the target host's format (Vercel Functions when built on Vercel).
   // It must come after tanstackStart() and before viteReact().
-  plugins: [requireEnv(['VITE_CHARTLAB_LANDING_URL']), devtools(), tailwindcss(), tanstackStart(), nitro(), viteReact()],
+  plugins: [requireEnv(['VITE_SITE_URL', 'VITE_CHARTLAB_LANDING_URL']), devtools(), tailwindcss(), tanstackStart(), nitro(), viteReact()],
 })
 
 export default config

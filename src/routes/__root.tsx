@@ -14,7 +14,6 @@ export const Route = createRootRoute({
       { name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
       { name: 'theme-color', content: '#0a0a0a', media: '(prefers-color-scheme: dark)' },
       { property: 'og:site_name', content: 'Disatu' },
-      { property: 'og:image', content: '/favicon-512.png' },
     ],
     links: [
       { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
