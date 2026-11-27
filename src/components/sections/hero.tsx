@@ -2,11 +2,12 @@ import { useContent, useLang } from "@/i18n/use-content";
 import { useTheme } from "@/theme/theme-provider";
 import { LinkButton } from "@/components/ui/button";
 import { HelixField } from "@/components/ui/helix-field";
-import { chartlabLandingHref } from '@/lib/site-links'
+import { contactLinks } from '@/lib/contact'
 
 export function Hero() {
   const lang = useLang();
-  const { hero, ui } = useContent();
+  const { hero, ui, about } = useContent();
+  const { whatsapp } = contactLinks(about.contact);
   const { resolved } = useTheme();
   return (
     <section id="hero" className="relative isolate overflow-hidden bg-bg">
@@ -39,33 +40,13 @@ export function Hero() {
             style={{ "--i": 3 } as React.CSSProperties}
             className="hero-rise mt-8 flex flex-wrap gap-3"
           >
-            <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
-              {ui.tryFree}
+            <LinkButton external href={whatsapp}>
+              {ui.consult}
             </LinkButton>
-            <LinkButton href={`/${lang}#chartlab`} variant="ghost">
-              {ui.seeApp}
+            <LinkButton href={`/${lang}#services`} variant="ghost">
+              {ui.seeServices}
             </LinkButton>
           </div>
-          <p
-            style={{ "--i": 4 } as React.CSSProperties}
-            className="hero-rise mt-6 flex items-center gap-2 text-sm font-medium"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-accent"
-              aria-hidden="true"
-            >
-              <path d="M5 12l5 5L20 7" />
-            </svg>
-            {hero.bundleNote}
-          </p>
         </div>
 
         <div className="order-1 flex justify-center lg:order-2">

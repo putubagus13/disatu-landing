@@ -1,30 +1,22 @@
-export type Section = 'hero' | 'workflow' | 'ebook' | 'chartlab' | 'services'
-export type NavItem = { label: string; page: 'home' | 'about'; hash?: Section }
-export type EbookPackage = {
-  id: string
-  name: string
-  tagline: string
-  price: number
-  originalPrice?: number
-  features: string[]
-  includesBacktestAccess: true
-  highlighted?: boolean
-  checkoutUrl: string
-}
-export type ChartLabFeature = {
-  title: string
-  description: string
-  icon: 'chart' | 'bolt' | 'layers' | 'shield' | 'clock' | 'target'
-}
-export type WorkflowStepId = 'learn' | 'system' | 'backtest' | 'live' | 'profit'
-export type WorkflowStep = {
-  id: WorkflowStepId
+export type Section = 'hero' | 'services' | 'process' | 'products' | 'about' | 'contact'
+export type NavItem = { label: string; page: 'home' | 'about'; hash?: 'services' | 'process' | 'products' }
+export type ServiceItem = { title: string; description: string; icon: 'web' | 'mobile' | 'backend' | 'webapp' }
+export type ProcessStepId = 'discovery' | 'proposal' | 'build' | 'launch' | 'support'
+export type ProcessStep = {
+  id: ProcessStepId
   label: string
   title: string
   description: string
   points: { label: string; text: string }[]
 }
-export type ServiceItem = { title: string; description: string; icon: 'web' | 'mobile' | 'backend' | 'webapp' }
+export type Product = {
+  id: 'chartlab'
+  name: string
+  badge: string
+  description: string
+  features: string[]
+  cta: string
+}
 export type Education = { degree: string; school: string }
 export type SkillGroup = { group: string; items: string[] }
 export type Experience = {
@@ -37,14 +29,6 @@ export type Experience = {
 export type SiteContent = {
   meta: { homeTitle: string; homeDescription: string; aboutTitle: string; aboutDescription: string }
   ui: {
-    buyEbook: string
-    buyPackage: string
-    mostPopular: string
-    freeBacktestBadge: string
-    openApp: string
-    tryFree: string
-    freeBadge: string
-    seeApp: string
     menuOpen: string
     menuClose: string
     skipToContent: string
@@ -53,44 +37,31 @@ export type SiteContent = {
     themeSystem: string
     switchLanguage: string
     visualLabel: string
-    whatYouLearn: string
-    howToGetAccess: string
-    sampleData: string
     experienceTitle: string
     skillsTitle: string
-    aboutCta: string
     educationTitle: string
     whatsapp: string
     email: string
+    consult: string
+    seeServices: string
+    aboutCta: string
   }
   brand: { name: 'Disatu'; tagline: string }
   nav: NavItem[]
-  hero: { eyebrow: string; title: string; subtitle: string; bundleNote: string }
-  ebook: { title: string; subtitle: string; chapters: string[]; packages: EbookPackage[] }
-  chartlab: {
-    title: string
-    subtitle: string
-    videoSrc: string
-    videoPoster: string
-    videoLabel: string
-    videoNote: string
-    features: ChartLabFeature[]
-    steps: { title: string; description: string }[]
-  }
+  hero: { eyebrow: string; title: string; subtitle: string }
   services: { title: string; subtitle: string; contactLead: string; items: ServiceItem[] }
-  workflow: {
+  process: {
     tag: string
     title: string
     subtitle: string
     stepWord: string
-    hubLabel: string
     next: string
     cta: string
-    note: string
-    steps: WorkflowStep[]
+    steps: ProcessStep[]
   }
-  offer: { title: string; subtitle: string }
-  chartlabPage: { title: string; description: string; loading: string; fallback: string; openNewTab: string; credit: string }
+  products: { tag: string; title: string; subtitle: string; items: Product[] }
+  aboutTeaser: { tag: string; title: string; text: string; cta: string }
+  contactCta: { title: string; subtitle: string }
   about: {
     company: {
       title: string

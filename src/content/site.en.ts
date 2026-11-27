@@ -1,25 +1,14 @@
-import type { SiteContent } from "./types";
-import { shared } from "./shared";
-
-const [starter, pro, mentor] = shared.packages;
+import type { SiteContent } from './types'
+import { shared } from './shared'
 
 export const siteEn: SiteContent = {
   meta: {
-    homeTitle: 'ChartLab — Free Crypto Trading Platform with Backtesting | Disatu',
-    homeDescription:
-      'ChartLab by Disatu: a free trading platform to analyze the crypto market. Backtest your system, see the statistics, and find the best R:R.',
+    homeTitle: 'Disatu — Website & App Development',
+    homeDescription: 'Disatu builds company profile websites, mobile apps, backend systems, and web apps such as e-commerce, shaped around your business.',
     aboutTitle: 'About Disatu',
     aboutDescription: 'Disatu builds websites, mobile apps, backend systems, and web apps. Founded in 2024 by Putu Bagus Raditya.',
   },
   ui: {
-    buyEbook: "Buy E-Book",
-    buyPackage: "Buy Package",
-    mostPopular: "Most Popular",
-    freeBacktestBadge: "Includes the ChartLab guide",
-    openApp: 'Open ChartLab',
-    tryFree: 'Try ChartLab Free',
-    freeBadge: 'Every feature free',
-    seeApp: "Watch the preview",
     menuOpen: "Open menu",
     menuClose: "Close menu",
     skipToContent: "Skip to content",
@@ -27,101 +16,27 @@ export const siteEn: SiteContent = {
     themeDark: "Dark theme",
     themeSystem: "System theme",
     switchLanguage: "Switch language",
-    visualLabel:
-      "Animated three-dimensional lines that change shape every few seconds. Move your cursor to interact",
-    whatYouLearn: "What you'll learn",
-    howToGetAccess: "How to get started",
-    sampleData: "sample data",
+    visualLabel: "Animated three-dimensional lines that change shape every few seconds. Move your cursor to interact",
     experienceTitle: "Experience",
     skillsTitle: "Skills",
-    aboutCta: 'Try ChartLab free',
     educationTitle: "Education",
     whatsapp: "WhatsApp",
     email: "Email",
+    consult: 'Consult',
+    seeServices: 'See services',
+    aboutCta: 'Talk about your project',
   },
-  brand: { name: "Disatu", tagline: "Learn, test, and trust your data." },
+  brand: { name: 'Disatu', tagline: 'Websites and apps built around what you need.' },
   nav: [
-    { label: 'Trading Workflow', page: 'home', hash: 'workflow' },
-    { label: 'ChartLab', page: 'home', hash: 'chartlab' },
-    { label: 'About Disatu', page: 'about' },
+    { label: 'Services', page: 'home', hash: 'services' },
+    { label: 'Process', page: 'home', hash: 'process' },
+    { label: 'Products', page: 'home', hash: 'products' },
+    { label: 'About', page: 'about' },
   ],
   hero: {
-    eyebrow: 'ChartLab · Crypto Trading Platform',
-    title: 'Analyze the crypto market and test your system. Every feature free.',
-    subtitle:
-      'ChartLab is a trading platform for analyzing the crypto market. Backtest your system, read the statistics, and find the best R:R, at no cost.',
-    bundleNote: 'Every feature is free, backtesting included.',
-  },
-  ebook: {
-    title: "Crypto Trading E-Book",
-    subtitle:
-      "A practical guide from market basics to building and testing your own strategy.",
-    chapters: [
-      "Crypto market basics and how orders work",
-      "Reading charts without relying on gut feeling",
-      "Risk management and position sizing",
-      "Designing strategy rules you can test",
-      "Backtesting: reading results and avoiding traps",
-      "Execution discipline and trading journals",
-    ],
-    packages: [
-      {
-        ...starter,
-        name: "Starter",
-        tagline: "Start from the right foundation.",
-        features: [
-          "Full e-book (PDF)",
-          "ChartLab usage guide",
-          "E-book content updates",
-        ],
-        includesBacktestAccess: true,
-      },
-      {
-        ...pro,
-        name: "Pro",
-        tagline: "Most chosen by serious learners.",
-        features: [
-          "Full e-book (PDF)",
-          "ChartLab usage guide",
-          "Ready-to-use strategy templates",
-          "E-book content updates",
-        ],
-        includesBacktestAccess: true,
-      },
-      {
-        ...mentor,
-        name: "Mentor",
-        tagline: "With hands-on guidance.",
-        features: [
-          "Everything in Pro",
-          "ChartLab usage guide",
-          "One live Q&A session",
-          "Strategy review",
-        ],
-        includesBacktestAccess: true,
-      },
-    ],
-  },
-  chartlab: {
-    title: 'ChartLab: analyze and test your strategy in one place',
-    subtitle: 'ChartLab brings chart analysis and backtesting together in one platform. Every feature is free.',
-    videoSrc: shared.videoSrc,
-    videoPoster: shared.videoPoster,
-    videoLabel: 'ChartLab tutorial video',
-    videoNote: 'A short walkthrough, from Bar Replay to trade history. On-screen captions are in Indonesian.',
-    features: [
-      { title: 'Built-in backtesting', description: 'Test your trading system on historical data with Bar Replay, as if the market were live.', icon: shared.icons[4] },
-      { title: 'Backtest statistics', description: 'See how your system performs in clear statistics, not gut feeling.', icon: shared.icons[0] },
-      { title: 'Best R:R recommendation', description: 'ChartLab analyzes the system you built and recommends the best risk:reward ratio.', icon: shared.icons[5] },
-      { title: 'Full chart analysis', description: 'Indicators, multiple timeframes, and a multi-pair watchlist to read the market.', icon: shared.icons[2] },
-      { title: 'Orders with SL, TP, and trailing stop', description: 'Set entry, stop loss, take profit, and trailing stop right on the chart.', icon: shared.icons[3] },
-      { title: 'Automatic trade journal', description: 'Trade history with chart screenshots, tags, and a note on why you took each trade.', icon: shared.icons[1] },
-    ],
-    steps: [
-      { title: 'Open ChartLab', description: 'Go in from your browser. It is free, at no cost.' },
-      { title: 'Build and test your system', description: 'Add indicators, run Bar Replay, then open trades with SL and TP.' },
-      { title: 'Read the stats and R:R', description: 'Review your backtest statistics and the best R:R recommended for your system.' },
-    ],
+    eyebrow: 'Disatu · Website & App Development',
+    title: 'Websites and apps built around your business.',
+    subtitle: 'From company profiles to mobile apps and backend systems, Disatu designs and builds your digital product, from the first conversation to after launch.',
   },
   services: {
     title: "Disatu Services",
@@ -153,133 +68,91 @@ export const siteEn: SiteContent = {
       },
     ],
   },
-  workflow: {
-    tag: "The right way to trade",
-    title: "Five stages before you risk real money",
-    subtitle:
-      "Most beginners jump straight to the market. Follow this order instead: learn, build a system, prove it, verify it live, and secure your profit.",
-    stepWord: "Step",
-    hubLabel: "Your edge",
-    next: "Next step",
-    cta: 'Try ChartLab free',
-    note: "Sample data for illustration only. Not financial advice.",
+  process: {
+    tag: 'How we work',
+    title: 'Five steps from idea to launch',
+    subtitle: 'Every project follows the same order, so you always know what is being worked on and what comes next.',
+    stepWord: 'Step',
+    next: 'Next step',
+    cta: 'Start a consultation',
     steps: [
       {
-        id: "learn",
-        label: "Learn the markets",
-        title: "Build your foundation from three angles",
-        description:
-          "Before any trade, learn to read the market from more than one lens. No single method is enough on its own.",
+        id: 'discovery',
+        label: 'Discovery call',
+        title: 'First, understand what you need',
+        description: 'We start with a conversation: your business goals, who the users are, and the problem to solve.',
         points: [
-          {
-            label: "Technical analysis",
-            text: "Read price, trend, support and resistance, and volume to time entries and exits.",
-          },
-          {
-            label: "Fundamental analysis",
-            text: "Judge a project’s real value: team, tokenomics, adoption, and the macro picture.",
-          },
-          {
-            label: "On-chain data",
-            text: "Follow wallets, exchange flows, and network activity to see what large holders actually do.",
-          },
+          { label: 'Goals and users', text: 'What you want to achieve, and who will use it.' },
+          { label: 'Feature needs', text: 'The features you need from day one, and the ones that can follow.' },
         ],
       },
       {
-        id: "system",
-        label: "Define your system",
-        title: "Turn knowledge into written rules",
-        description:
-          "Combine what you learned into one trading system with no room for guessing or mood.",
+        id: 'proposal',
+        label: 'Scope & proposal',
+        title: 'A clear plan before we start',
+        description: 'We turn those needs into a plan: the scope of work, the stages, and a proposal.',
         points: [
-          {
-            label: "Entry rules",
-            text: "The exact conditions that must be true before you buy or sell.",
-          },
-          {
-            label: "Exit and stop loss",
-            text: "The price level where the trade idea is proven wrong and you get out.",
-          },
-          {
-            label: "Money management",
-            text: "Decide before the first trade how much capital you risk per trade (for example 1%), how big each position is, and when you stop for the day.",
-          },
+          { label: 'Scope of work', text: 'What is included, and what is not.' },
+          { label: 'Stages and timeline', text: 'The order of the work and an estimate for each stage.' },
         ],
       },
       {
-        id: "backtest",
-        label: "Backtest",
-        title: "Prove the system on past data",
-        description:
-          'Run your rules in ChartLab with Bar Replay, trade by trade. Read the statistics and find the best R:R. Only a system that survives the numbers moves on.',
+        id: 'build',
+        label: 'Design & build',
+        title: 'Designed first, then built in stages',
+        description: 'The look is designed first, then built piece by piece. You see the progress and give feedback at every stage.',
         points: [
-          {
-            label: 'Backtest statistics', text: 'Check the statistics, for example win rate and worst drawdown, and whether your money management keeps it survivable.',
-          },
-          {
-            label: 'Best R:R', text: 'ChartLab recommends the best risk:reward ratio for the system you built. Treat it as a guide, not a promise.',
-          },
-          {
-            label: "Not profitable yet?",
-            text: "Go back to step 2, adjust the rules, and test again before risking a cent.",
-          },
+          { label: 'Interface design', text: 'Page and flow designs you approve before they are built.' },
+          { label: 'Built in stages', text: 'Features are built bit by bit, not all at once at the end.' },
+          { label: 'Regular reviews', text: 'You review progress regularly, so there are no surprises at the end.' },
         ],
       },
       {
-        id: "live",
-        label: "Real market",
-        title: "Go live and verify the system",
-        description:
-          "Past results are no guarantee. Trade the real market with the rules you already wrote, and compare what happens with the backtest.",
+        id: 'launch',
+        label: 'Test & launch',
+        title: 'Tested first, then launched',
+        description: 'Every feature is tested before users get it. Once ready, your product goes live.',
         points: [
-          {
-            label: "Verify in real conditions",
-            text: "Check that fills, fees, and slippage match what the backtest assumed.",
-          },
-          {
-            label: "Follow the rules",
-            text: "No changing the plan mid-trade because of fear or excitement.",
-          },
-          {
-            label: "Keep a journal",
-            text: "Record every trade so you can compare real results with the backtest.",
-          },
+          { label: 'Testing', text: 'Features are checked against the design on different devices.' },
+          { label: 'Launch', text: 'Your website goes live on your domain, your app on the app stores.' },
         ],
       },
       {
-        id: "profit",
-        label: "Take profit",
-        title: "Secure the gains you earned",
-        description:
-          "A profit you never take is only a number on a screen. Plan your exits before you enter.",
+        id: 'support',
+        label: 'Post-launch support',
+        title: 'Still with you after launch',
+        description: 'Launch is not the end. We help with fixes and further development as your needs grow.',
         points: [
-          {
-            label: "Scale out in levels",
-            text: "Take part of the position at TP1, TP2, and TP3 instead of all or nothing.",
-          },
-          {
-            label: "Trail your stop",
-            text: "Move the stop behind price so winners are protected.",
-          },
-          {
-            label: "Review and repeat",
-            text: "Review the journal, refine the rules where results drifted, and run the cycle again.",
-          },
+          { label: 'Fixes', text: 'We help resolve issues that come up after launch.' },
+          { label: 'Further development', text: 'New features can be added as your business grows.' },
         ],
       },
     ],
   },
-  offer: {
-    title: 'Sharper analysis. Tested systems. Free.',
-    subtitle: 'ChartLab brings market analysis and backtesting together in one free platform.',
+  products: {
+    tag: 'Disatu products',
+    title: 'Products we build ourselves',
+    subtitle: 'Disatu also builds and runs digital products of its own.',
+    items: [
+      {
+        id: 'chartlab',
+        name: 'ChartLab',
+        badge: 'Built by Disatu',
+        description: 'A crypto trading platform for analyzing the market and testing trading systems. Every feature is free.',
+        features: ['Free backtesting with Bar Replay', 'Backtest statistics', 'Best R:R recommendation'],
+        cta: 'Visit ChartLab',
+      },
+    ],
   },
-  chartlabPage: {
-    title: "ChartLab — Free Crypto Trading Platform",
-    description: "Analyze the crypto market, backtest your system, and find the best R:R in ChartLab. Every feature is free.",
-    loading: "Loading ChartLab…",
-    fallback: "ChartLab could not load on this page. Open it in a new tab to use it directly.",
-    openNewTab: "Open in a new tab",
-    credit: "Chart by Vela (LuxAlgo)",
+  aboutTeaser: {
+    tag: 'About Disatu',
+    title: 'Founded in 2024',
+    text: 'Disatu was founded by Putu Bagus Raditya, a software engineer.',
+    cta: 'More about Disatu',
+  },
+  contactCta: {
+    title: 'Got a project? Tell us about it',
+    subtitle: 'Tell us what you need over WhatsApp or email. We will help find the solution that fits.',
   },
   about: {
     company: {
@@ -331,5 +204,5 @@ export const siteEn: SiteContent = {
     contact: shared.contact,
     socials: shared.socials,
   },
-  footer: { note: "© Disatu. Educational content, not financial advice." },
-};
+  footer: { note: '© Disatu' },
+}

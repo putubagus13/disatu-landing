@@ -15,30 +15,50 @@ function shape(v: unknown): unknown {
   return typeof v
 }
 
+const FIXED = {
+  id: {
+    title: 'Disatu — Jasa Pembuatan Website & Aplikasi',
+    steps: ['Konsultasi kebutuhan', 'Rancangan & penawaran', 'Desain & pengembangan', 'Uji & rilis', 'Dukungan setelah rilis'],
+    badge: 'Dibangun oleh Disatu',
+    features: ['Backtesting gratis dengan Bar Replay', 'Statistik hasil backtest', 'Rekomendasi R:R terbaik'],
+  },
+  en: {
+    title: 'Disatu — Website & App Development',
+    steps: ['Discovery call', 'Scope & proposal', 'Design & build', 'Test & launch', 'Post-launch support'],
+    badge: 'Built by Disatu',
+    features: ['Free backtesting with Bar Replay', 'Backtest statistics', 'Best R:R recommendation'],
+  },
+} as const
+
 describe.each(LANGS)('content %s', (lang) => {
   const c = getContent(lang)
+  const f = FIXED[lang]
   it('brand', () => expect(c.brand.name).toBe('Disatu'))
-  it('packages', () => {
-    expect(c.ebook.packages.length).toBeGreaterThanOrEqual(1)
-    for (const p of c.ebook.packages) {
-      expect(p.includesBacktestAccess).toBe(true)
-      expect(p.price).toBeGreaterThan(0)
-      if (p.originalPrice !== undefined) expect(p.originalPrice).toBeGreaterThan(p.price)
-      expect(new URL(p.checkoutUrl).protocol).toBe('https:')
+  it('home title is about the services', () => expect(c.meta.homeTitle).toBe(f.title))
+  it('nav: services, process, products on home, then About', () => {
+    expect(c.nav.map((n) => [n.page, n.hash])).toEqual([['home', 'services'], ['home', 'process'], ['home', 'products'], ['about', undefined]])
+  })
+  it('four services', () => expect(c.services.items).toHaveLength(4))
+  it('five process steps with the agreed labels, each with 2-3 points', () => {
+    expect(c.process.steps.map((s) => s.id)).toEqual(['discovery', 'proposal', 'build', 'launch', 'support'])
+    expect(c.process.steps.map((s) => s.label)).toEqual(f.steps)
+    for (const s of c.process.steps) {
+      expect(s.points.length).toBeGreaterThanOrEqual(2)
+      expect(s.points.length).toBeLessThanOrEqual(3)
     }
-    expect(c.ebook.packages.filter((p) => p.highlighted)).toHaveLength(1)
-    const ids = c.ebook.packages.map((p) => p.id)
-    expect(new Set(ids).size).toBe(ids.length)
   })
-  it('urls are https', () => {
-    expect(c.chartlab).not.toHaveProperty('appUrl') // the call to action is the embedded page now, not an external URL
-    for (const s of strings(c.chartlab)) expect(s).not.toMatch(/example\.com/)
-    for (const s of c.about.socials) expect(new URL(s.url).protocol).toBe('https:')
+  it('one product, ChartLab, built by Disatu, with its three standout features', () => {
+    expect(c.products.items).toHaveLength(1)
+    const p = c.products.items[0]
+    expect(p.id).toBe('chartlab')
+    expect(p.name).toBe('ChartLab')
+    expect(p.badge).toBe(f.badge)
+    expect(p.features).toEqual(f.features)
   })
-  it('founder has experiences', () => expect(c.about.founder.experiences.length).toBeGreaterThanOrEqual(1))
   it('about facts', () => {
     expect(c.about.company.tag).toContain('2024')
-    expect(c.about.company.facts.map((f) => f.value)).toContain('2024')
+    expect(c.about.company.facts.map((x) => x.value)).toContain('2024')
+    expect(c.about.company.intro).toContain('ChartLab')
     expect(c.about.contact).toEqual({ phone: '+6282184677520', email: 'ptbagusraditya@gmail.com' })
     expect(c.about.founder.name).toBe('Putu Bagus Raditya')
     expect(c.about.founder.photo).toBe('/assets/profile-picture.JPG')
@@ -46,13 +66,17 @@ describe.each(LANGS)('content %s', (lang) => {
     expect(c.about.founder.experiences[0].company).toBe('NoLimit Indonesia')
     expect(c.about.founder.education).toHaveLength(1)
     expect(c.about.socials).toEqual([])
+    for (const s of c.about.socials) expect(new URL(s.url).protocol).toBe('https:')
   })
-  it('services and backtest video', () => {
-    expect(c.services.items).toHaveLength(4)
-    expect(c.chartlab.videoSrc).toBe('/assets/tutorial_backtest_v2.mp4')
+  it('footer note', () => expect(c.footer.note).toBe('© Disatu'))
+  it('no trading-site leftovers', () => {
+    for (const k of ['ebook', 'chartlab', 'workflow', 'offer', 'chartlabPage']) expect(c).not.toHaveProperty(k)
   })
-  it('no empty strings', () => {
-    for (const s of strings(c)) expect(s.trim()).not.toBe('')
+  it('no empty strings, no placeholder URLs', () => {
+    for (const s of strings(c)) {
+      expect(s.trim()).not.toBe('')
+      expect(s).not.toMatch(/example\.com/)
+    }
   })
 })
 
@@ -61,17 +85,14 @@ describe('locale parity', () => {
   const en = getContent('en')
   it('same shape', () => expect(shape(en)).toEqual(shape(id)))
   it('same non-text data', () => {
-    const pk = (c: typeof id) => c.ebook.packages.map((p) => [p.id, p.price, p.originalPrice, p.checkoutUrl, p.highlighted])
-    expect(pk(en)).toEqual(pk(id))
     expect(en.about.socials.map((s) => s.url)).toEqual(id.about.socials.map((s) => s.url))
     expect(en.about.contact).toEqual(id.about.contact)
     expect(en.about.founder.skills.map((g) => g.items)).toEqual(id.about.founder.skills.map((g) => g.items))
     expect(en.about.founder.photo).toBe(id.about.founder.photo)
     expect(en.about.company.facts.map((f) => f.value)).toEqual(id.about.company.facts.map((f) => f.value))
     expect(en.services.items.map((i) => i.icon)).toEqual(id.services.items.map((i) => i.icon))
-    expect(en.chartlab.videoSrc).toBe(id.chartlab.videoSrc)
     expect(en.nav.map((x) => [x.page, x.hash])).toEqual(id.nav.map((x) => [x.page, x.hash]))
-    expect(en.workflow.steps.map((s) => [s.id, s.points.length])).toEqual(id.workflow.steps.map((s) => [s.id, s.points.length]))
-    expect(en.chartlab.features.map((f) => f.icon)).toEqual(id.chartlab.features.map((f) => f.icon))
+    expect(en.process.steps.map((s) => [s.id, s.points.length])).toEqual(id.process.steps.map((s) => [s.id, s.points.length]))
+    expect(en.products.items.map((p) => [p.id, p.name, p.features.length])).toEqual(id.products.items.map((p) => [p.id, p.name, p.features.length]))
   })
 })

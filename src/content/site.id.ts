@@ -1,25 +1,14 @@
-import type { SiteContent } from "./types";
-import { shared } from "./shared";
-
-const [starter, pro, mentor] = shared.packages;
+import type { SiteContent } from './types'
+import { shared } from './shared'
 
 export const siteId: SiteContent = {
   meta: {
-    homeTitle: 'ChartLab — Platform Trading Crypto Gratis dengan Backtesting | Disatu',
-    homeDescription:
-      'ChartLab dari Disatu: platform trading gratis untuk menganalisa market crypto. Backtest sistemmu, lihat statistiknya, dan temukan R:R terbaik.',
+    homeTitle: 'Disatu — Jasa Pembuatan Website & Aplikasi',
+    homeDescription: 'Disatu membuat website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce, sesuai kebutuhan bisnismu.',
     aboutTitle: 'Tentang Disatu',
     aboutDescription: 'Disatu menyediakan jasa pembuatan website, aplikasi mobile, sistem backend, dan web app. Berdiri sejak 2024, didirikan oleh Putu Bagus Raditya.',
   },
   ui: {
-    buyEbook: "Beli E-Book",
-    buyPackage: "Beli Paket",
-    mostPopular: "Paling Populer",
-    freeBacktestBadge: "Termasuk panduan ChartLab",
-    openApp: 'Buka ChartLab',
-    tryFree: 'Coba ChartLab Gratis',
-    freeBadge: 'Semua fitur gratis',
-    seeApp: "Lihat cuplikan",
     menuOpen: "Buka menu",
     menuClose: "Tutup menu",
     skipToContent: "Lewati ke konten",
@@ -27,101 +16,27 @@ export const siteId: SiteContent = {
     themeDark: "Tema gelap",
     themeSystem: "Tema ikut sistem",
     switchLanguage: "Ganti bahasa",
-    visualLabel:
-      "Animasi garis tiga dimensi yang berubah bentuk secara berkala. Gerakkan kursor untuk berinteraksi",
-    whatYouLearn: "Yang akan kamu pelajari",
-    howToGetAccess: "Cara memulai",
-    sampleData: "contoh data",
+    visualLabel: "Animasi garis tiga dimensi yang berubah bentuk secara berkala. Gerakkan kursor untuk berinteraksi",
     experienceTitle: "Pengalaman",
     skillsTitle: "Keahlian",
-    aboutCta: 'Coba ChartLab gratis',
     educationTitle: "Pendidikan",
     whatsapp: "WhatsApp",
     email: "Email",
+    consult: 'Konsultasi',
+    seeServices: 'Lihat layanan',
+    aboutCta: 'Konsultasikan proyekmu',
   },
-  brand: { name: "Disatu", tagline: "Belajar, uji, dan percaya pada datamu." },
+  brand: { name: 'Disatu', tagline: 'Website dan aplikasi yang dibangun sesuai kebutuhanmu.' },
   nav: [
-    { label: 'Alur Trading', page: 'home', hash: 'workflow' },
-    { label: 'ChartLab', page: 'home', hash: 'chartlab' },
-    { label: 'Tentang Disatu', page: 'about' },
+    { label: 'Layanan', page: 'home', hash: 'services' },
+    { label: 'Proses', page: 'home', hash: 'process' },
+    { label: 'Produk', page: 'home', hash: 'products' },
+    { label: 'Tentang', page: 'about' },
   ],
   hero: {
-    eyebrow: 'ChartLab · Platform Trading Crypto',
-    title: 'Analisa market crypto dan uji sistemmu. Semua fitur gratis.',
-    subtitle:
-      'ChartLab adalah platform trading untuk menganalisa market crypto. Backtest sistemmu, lihat statistiknya, dan temukan R:R terbaik tanpa biaya.',
-    bundleNote: 'Semua fitur gratis, termasuk backtesting.',
-  },
-  ebook: {
-    title: "E-Book Trading Crypto",
-    subtitle:
-      "Panduan praktis dari dasar pasar sampai membangun dan menguji strategi sendiri.",
-    chapters: [
-      "Dasar pasar crypto dan cara kerja order",
-      "Membaca grafik tanpa mengandalkan firasat",
-      "Manajemen risiko dan ukuran posisi",
-      "Merancang aturan strategi yang bisa diuji",
-      "Backtest: cara membaca hasil dan menghindari jebakan",
-      "Disiplin eksekusi dan jurnal trading",
-    ],
-    packages: [
-      {
-        ...starter,
-        name: "Starter",
-        tagline: "Mulai dari fondasi yang benar.",
-        features: [
-          "E-book lengkap (PDF)",
-          "Panduan memakai ChartLab",
-          "Update isi e-book",
-        ],
-        includesBacktestAccess: true,
-      },
-      {
-        ...pro,
-        name: "Pro",
-        tagline: "Paling banyak dipilih untuk belajar serius.",
-        features: [
-          "E-book lengkap (PDF)",
-          "Panduan memakai ChartLab",
-          "Template strategi siap pakai",
-          "Update isi e-book",
-        ],
-        includesBacktestAccess: true,
-      },
-      {
-        ...mentor,
-        name: "Mentor",
-        tagline: "Dengan pendampingan langsung.",
-        features: [
-          "Semua isi paket Pro",
-          "Panduan memakai ChartLab",
-          "Sesi tanya jawab 1 kali",
-          "Review strategi",
-        ],
-        includesBacktestAccess: true,
-      },
-    ],
-  },
-  chartlab: {
-    title: 'ChartLab: analisa dan uji strategimu di satu tempat',
-    subtitle: 'ChartLab menggabungkan analisa chart dan backtesting dalam satu platform. Semua fiturnya gratis.',
-    videoSrc: shared.videoSrc,
-    videoPoster: shared.videoPoster,
-    videoLabel: 'Video tutorial ChartLab',
-    videoNote: 'Cuplikan singkat: dari Bar Replay sampai riwayat trade.',
-    features: [
-      { title: 'Backtesting bawaan', description: 'Uji sistem tradingmu pada data historis dengan Bar Replay, seolah market berjalan live.', icon: shared.icons[4] },
-      { title: 'Statistik hasil backtest', description: 'Lihat performa sistemmu dalam statistik yang jelas, bukan sekadar perasaan.', icon: shared.icons[0] },
-      { title: 'Rekomendasi R:R terbaik', description: 'ChartLab menganalisa sistem buatanmu dan merekomendasikan rasio risk:reward terbaik.', icon: shared.icons[5] },
-      { title: 'Analisa chart lengkap', description: 'Indikator, berbagai timeframe, dan watchlist multi-pair untuk membaca market.', icon: shared.icons[2] },
-      { title: 'Order dengan SL, TP, dan trailing stop', description: 'Atur entry, stop loss, take profit, dan trailing stop langsung di chart.', icon: shared.icons[3] },
-      { title: 'Jurnal trade otomatis', description: 'Riwayat trade dengan screenshot chart, tag, dan catatan alasan tiap trade.', icon: shared.icons[1] },
-    ],
-    steps: [
-      { title: 'Buka ChartLab', description: 'Masuk dari browser. Gratis, tanpa biaya.' },
-      { title: 'Bangun dan uji sistemmu', description: 'Pasang indikator, jalankan Bar Replay, lalu buka posisi dengan SL dan TP.' },
-      { title: 'Baca statistik dan R:R', description: 'Tinjau statistik hasil backtest dan rekomendasi R:R terbaik untuk sistemmu.' },
-    ],
+    eyebrow: 'Disatu · Jasa Website & Aplikasi',
+    title: 'Website dan aplikasi yang dibangun sesuai kebutuhan bisnismu.',
+    subtitle: 'Dari company profile sampai aplikasi mobile dan sistem backend, Disatu merancang dan membangun produk digitalmu, dari konsultasi pertama sampai setelah rilis.',
   },
   services: {
     title: "Layanan Disatu",
@@ -155,133 +70,91 @@ export const siteId: SiteContent = {
       },
     ],
   },
-  workflow: {
-    tag: "Alur trading yang tepat",
-    title: "Lima tahap sebelum mempertaruhkan uang sungguhan",
-    subtitle:
-      "Kebanyakan pemula langsung masuk ke market. Ikuti urutan ini: belajar, susun sistem, buktikan, verifikasi di market asli, lalu amankan profit.",
-    stepWord: "Langkah",
-    hubLabel: "Edge-mu",
-    next: "Langkah berikutnya",
-    cta: 'Coba ChartLab gratis',
-    note: "Data contoh untuk ilustrasi. Bukan saran keuangan.",
+  process: {
+    tag: 'Cara kami bekerja',
+    title: 'Lima langkah dari ide sampai rilis',
+    subtitle: 'Setiap proyek berjalan dengan urutan yang sama, supaya kamu selalu tahu apa yang sedang dikerjakan dan apa berikutnya.',
+    stepWord: 'Langkah',
+    next: 'Langkah berikutnya',
+    cta: 'Mulai konsultasi',
     steps: [
       {
-        id: "learn",
-        label: "Pelajari market",
-        title: "Bangun fondasi dari tiga sudut pandang",
-        description:
-          "Sebelum trading, pelajari cara membaca market dari lebih dari satu sisi. Satu metode saja tidak cukup.",
+        id: 'discovery',
+        label: 'Konsultasi kebutuhan',
+        title: 'Pahami dulu apa yang kamu butuhkan',
+        description: 'Kita mulai dari ngobrol: tujuan bisnismu, siapa penggunanya, dan masalah apa yang ingin diselesaikan.',
         points: [
-          {
-            label: "Analisis teknikal",
-            text: "Baca harga, tren, support dan resistance, serta volume untuk menentukan waktu masuk dan keluar.",
-          },
-          {
-            label: "Analisis fundamental",
-            text: "Nilai kualitas proyek: tim, tokenomics, adopsi, dan kondisi makro.",
-          },
-          {
-            label: "Data on-chain",
-            text: "Pantau dompet, arus bursa, dan aktivitas jaringan untuk melihat apa yang benar-benar dilakukan pemegang besar.",
-          },
+          { label: 'Tujuan dan pengguna', text: 'Apa yang ingin dicapai, dan siapa yang akan memakainya.' },
+          { label: 'Kebutuhan fitur', text: 'Fitur yang wajib ada sejak awal, dan fitur yang bisa menyusul.' },
         ],
       },
       {
-        id: "system",
-        label: "Tentukan sistem",
-        title: "Ubah ilmu menjadi aturan tertulis",
-        description:
-          "Gabungkan semua yang kamu pelajari menjadi satu sistem trading tanpa ruang untuk menebak atau ikut mood.",
+        id: 'proposal',
+        label: 'Rancangan & penawaran',
+        title: 'Rencana yang jelas sebelum mulai',
+        description: 'Kebutuhan tadi kami susun menjadi rancangan: cakupan pekerjaan, tahapan, dan penawaran.',
         points: [
-          {
-            label: "Aturan entry",
-            text: "Kondisi pasti yang harus terpenuhi sebelum kamu membeli atau menjual.",
-          },
-          {
-            label: "Exit dan stop loss",
-            text: "Level harga yang membuktikan ide trade salah dan kamu keluar.",
-          },
-          {
-            label: "Manajemen modal",
-            text: "Putuskan sebelum trade pertama: berapa modal yang dipertaruhkan per trade (misalnya 1%), seberapa besar tiap posisi, dan kapan berhenti di hari itu.",
-          },
+          { label: 'Cakupan pekerjaan', text: 'Apa saja yang dikerjakan, dan apa yang tidak.' },
+          { label: 'Tahapan dan jadwal', text: 'Urutan pengerjaan dan perkiraan waktu tiap tahap.' },
         ],
       },
       {
-        id: "backtest",
-        label: "Backtest",
-        title: "Buktikan sistem pada data historis",
-        description:
-          'Jalankan aturanmu di ChartLab dengan Bar Replay, trade demi trade. Lihat statistiknya dan temukan R:R terbaik. Hanya sistem yang lolos hitungan yang lanjut.',
+        id: 'build',
+        label: 'Desain & pengembangan',
+        title: 'Dirancang dulu, lalu dibangun bertahap',
+        description: 'Tampilan dirancang lebih dulu, lalu dibangun bagian demi bagian. Kamu bisa melihat hasilnya dan memberi masukan di setiap tahap.',
         points: [
-          {
-            label: 'Statistik hasil', text: 'Periksa statistik backtest, misalnya tingkat kemenangan dan penurunan terburuk, dan apakah manajemen modalmu membuatnya tertahankan.',
-          },
-          {
-            label: 'R:R terbaik', text: 'ChartLab merekomendasikan rasio risk:reward terbaik dari sistem yang kamu buat. Jadikan acuan, bukan janji.',
-          },
-          {
-            label: "Belum profit?",
-            text: "Kembali ke langkah 2, perbaiki aturan, lalu uji lagi sebelum memakai uang asli.",
-          },
+          { label: 'Desain tampilan', text: 'Rancangan halaman dan alur yang kamu setujui sebelum dibangun.' },
+          { label: 'Pengembangan bertahap', text: 'Fitur dikerjakan sedikit demi sedikit, bukan langsung jadi di akhir.' },
+          { label: 'Masukan berkala', text: 'Kamu meninjau progres secara rutin, jadi tidak ada kejutan di akhir.' },
         ],
       },
       {
-        id: "live",
-        label: "Market asli",
-        title: "Masuk market asli dan verifikasi sistemmu",
-        description:
-          "Hasil masa lalu bukan jaminan. Trading di market asli dengan aturan yang sudah kamu tulis, lalu bandingkan hasilnya dengan backtest.",
+        id: 'launch',
+        label: 'Uji & rilis',
+        title: 'Diuji dulu, baru dirilis',
+        description: 'Sebelum dipakai pengguna, semua fitur diuji. Setelah siap, produkmu dirilis.',
         points: [
-          {
-            label: "Verifikasi di kondisi nyata",
-            text: "Pastikan eksekusi, biaya, dan slippage sesuai asumsi backtest.",
-          },
-          {
-            label: "Patuhi aturan",
-            text: "Jangan mengubah rencana di tengah trade karena takut atau euforia.",
-          },
-          {
-            label: "Catat di jurnal",
-            text: "Catat setiap trade supaya hasil asli bisa dibandingkan dengan hasil backtest.",
-          },
+          { label: 'Pengujian', text: 'Fitur diuji agar berjalan sesuai rancangan di berbagai perangkat.' },
+          { label: 'Rilis', text: 'Website online di domainmu, aplikasi terbit di toko aplikasi.' },
         ],
       },
       {
-        id: "profit",
-        label: "Take profit",
-        title: "Amankan keuntungan yang sudah kamu raih",
-        description:
-          "Profit yang tidak pernah diambil hanya angka di layar. Rencanakan exit sebelum kamu entry.",
+        id: 'support',
+        label: 'Dukungan setelah rilis',
+        title: 'Tetap didampingi setelah rilis',
+        description: 'Rilis bukan akhir. Kami bantu perbaikan dan pengembangan lanjutan saat kebutuhanmu bertambah.',
         points: [
-          {
-            label: "Ambil bertahap",
-            text: "Ambil sebagian posisi di TP1, TP2, dan TP3, bukan semua atau tidak sama sekali.",
-          },
-          {
-            label: "Geser stop mengikuti harga",
-            text: "Naikkan stop di belakang harga agar posisi yang untung terlindungi.",
-          },
-          {
-            label: "Evaluasi dan ulangi",
-            text: "Tinjau jurnal, perbaiki aturan yang hasilnya menyimpang, lalu jalankan siklus dari awal.",
-          },
+          { label: 'Perbaikan', text: 'Kendala yang muncul setelah rilis kami bantu tangani.' },
+          { label: 'Pengembangan lanjutan', text: 'Fitur baru bisa ditambahkan saat bisnismu berkembang.' },
         ],
       },
     ],
   },
-  offer: {
-    title: 'Analisa lebih tajam. Sistem teruji. Gratis.',
-    subtitle: 'ChartLab menggabungkan analisa market dan backtesting dalam satu platform gratis.',
+  products: {
+    tag: 'Produk Disatu',
+    title: 'Produk yang kami bangun sendiri',
+    subtitle: 'Disatu juga membangun dan menjalankan produk digitalnya sendiri.',
+    items: [
+      {
+        id: 'chartlab',
+        name: 'ChartLab',
+        badge: 'Dibangun oleh Disatu',
+        description: 'Platform trading crypto untuk menganalisa market dan menguji sistem trading. Semua fiturnya gratis.',
+        features: ['Backtesting gratis dengan Bar Replay', 'Statistik hasil backtest', 'Rekomendasi R:R terbaik'],
+        cta: 'Kunjungi ChartLab',
+      },
+    ],
   },
-  chartlabPage: {
-    title: "ChartLab — Platform Trading Crypto Gratis",
-    description: "Analisa market crypto, backtest sistemmu, dan temukan R:R terbaik di ChartLab. Semua fitur gratis.",
-    loading: "Memuat ChartLab…",
-    fallback: "ChartLab belum bisa dimuat di halaman ini. Buka di tab baru untuk memakainya langsung.",
-    openNewTab: "Buka di tab baru",
-    credit: "Chart oleh Vela (LuxAlgo)",
+  aboutTeaser: {
+    tag: 'Tentang Disatu',
+    title: 'Berdiri sejak 2024',
+    text: 'Disatu didirikan oleh Putu Bagus Raditya, seorang software engineer.',
+    cta: 'Selengkapnya tentang Disatu',
+  },
+  contactCta: {
+    title: 'Punya proyek? Ceritakan ke kami',
+    subtitle: 'Ceritakan kebutuhanmu lewat WhatsApp atau email. Kami bantu cari solusi yang paling pas.',
   },
   about: {
     company: {
@@ -332,5 +205,5 @@ export const siteId: SiteContent = {
     contact: shared.contact,
     socials: shared.socials,
   },
-  footer: { note: "© Disatu. Konten edukasi, bukan saran keuangan." },
-};
+  footer: { note: '© Disatu' },
+}

@@ -14,11 +14,11 @@ describe('LinkButton', () => {
   it('primary buttons use the shiny style, with the label in the span the effect hangs on', async () => {
     await renderWithRouter('/id')
     const header = await screen.findByRole('banner')
-    const cta = within(header).getByRole('link', { name: c.ui.openApp })
+    const cta = within(header).getByRole('link', { name: c.ui.consult })
     expect(cta.className).toContain('shiny-cta')
-    expect(cta.querySelector(':scope > span')?.textContent).toBe(c.ui.openApp)
-    expect(cta).toHaveAttribute('href', 'http://localhost:3000/id') // the ChartLab landing, same tab
-    expect(cta).not.toHaveAttribute('target')
+    expect(cta.querySelector(':scope > span')?.textContent).toBe(c.ui.consult)
+    expect(cta).toHaveAttribute('href', 'https://wa.me/6282184677520') // WhatsApp: its own tab
+    expect(cta).toHaveAttribute('target', '_blank')
   })
 
   it('external links open in a new tab unless newTab is false', () => {
@@ -42,7 +42,7 @@ describe('LinkButton', () => {
       if (!el) throw new Error('no hero')
       return el
     })
-    const ghost = within(hero).getByRole('link', { name: c.ui.seeApp })
+    const ghost = within(hero).getByRole('link', { name: c.ui.seeServices })
     expect(ghost.className).not.toContain('shiny-cta')
     expect(ghost.className).toContain('border')
   })

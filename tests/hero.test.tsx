@@ -17,7 +17,7 @@ describe('Hero', () => {
 
   describe.each(LANGS)('%s', (lang) => {
     const c = getContent(lang)
-    it('renders copy, CTAs and the animated visual', async () => {
+    it('says what Disatu does and offers a consult first, then the services', async () => {
       await renderWithRouter(`/${lang}`)
       const hero = await waitFor(() => {
         const el = document.getElementById('hero')
@@ -27,13 +27,15 @@ describe('Hero', () => {
       const h1s = within(hero).getAllByRole('heading', { level: 1 })
       expect(h1s).toHaveLength(1)
       expect(h1s[0]).toHaveTextContent(c.hero.title)
-      const open = within(hero).getByRole('link', { name: c.ui.tryFree })
-      expect(open).toHaveAttribute('href', `http://localhost:3000/${lang}`)
-      expect(open).not.toHaveAttribute('target')
-      expect(within(hero).getByRole('link', { name: c.ui.seeApp })).toHaveAttribute('href', `/${lang}#chartlab`)
+      expect(within(hero).getByText(c.hero.eyebrow)).toBeInTheDocument()
+      expect(within(hero).getByText(c.hero.subtitle)).toBeInTheDocument()
+      const links = within(hero).getAllByRole('link')
+      expect(links[0]).toHaveTextContent(c.ui.consult)
+      expect(links[0]).toHaveAttribute('href', 'https://wa.me/6282184677520')
+      expect(links[1]).toHaveTextContent(c.ui.seeServices)
+      expect(links[1]).toHaveAttribute('href', `/${lang}#services`)
+      for (const a of links) expect(a.getAttribute('href') ?? '').not.toMatch(/chartlab/i)
       expect(within(hero).getByRole('img')).toHaveAttribute('aria-label', c.ui.visualLabel)
-      expect(hero.textContent ?? '').not.toMatch(/strata/i)
-      expect(within(hero).getByText(c.hero.bundleNote)).toBeInTheDocument()
       expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
     })
   })

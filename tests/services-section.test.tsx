@@ -4,10 +4,10 @@ import { renderWithRouter } from './utils'
 import { getContent } from '@/content'
 import { LANGS } from '@/i18n/lang'
 
-describe.each(LANGS)('Disatu services on the About page %s', (lang) => {
+describe.each(LANGS)('Disatu services on the homepage %s', (lang) => {
   const c = getContent(lang)
   it('lists the four kinds of work, with working contact links', async () => {
-    await renderWithRouter(`/${lang}/about`)
+    await renderWithRouter(`/${lang}`)
     const sec = await waitFor(() => {
       const el = document.getElementById('services')
       if (!el) throw new Error('no services section')

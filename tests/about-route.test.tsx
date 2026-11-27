@@ -21,7 +21,7 @@ describe.each(LANGS)('about route %s', (lang) => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(c.about.company.title)
     expect(within(main).getByText(c.about.company.tag)).toBeInTheDocument()
     expect(c.about.company.tag).toContain('2024')
-    expect(within(main).getByText(c.about.company.intro)).toBeInTheDocument()
+    expect(main.querySelector('[data-company-intro]')?.textContent).toBe(c.about.company.intro)
     expect(within(main).getByText(c.about.company.principle)).toBeInTheDocument()
     expect(within(main).getByText(c.about.company.principleTitle)).toBeInTheDocument()
     await waitFor(() => expect(document.title).toBe(c.meta.aboutTitle))
@@ -90,20 +90,29 @@ describe.each(LANGS)('about route %s', (lang) => {
     expect(within(main).queryByText(f.education[0].school)).toBeNull()
   })
 
-  it('shows contact details as text, the call-to-action buttons once each, and no social links', async () => {
+  it('shows contact details as text, and no social links', async () => {
     const main = await page()
     expect(within(main).getByRole('link', { name: '+62 821-8467-7520' })).toHaveAttribute('href', 'https://wa.me/6282184677520')
     expect(within(main).getByRole('link', { name: 'ptbagusraditya@gmail.com' })).toHaveAttribute('href', 'mailto:ptbagusraditya@gmail.com')
-    expect(within(main).getAllByRole('link', { name: c.ui.whatsapp })).toHaveLength(1)
-    expect(within(main).getAllByRole('link', { name: c.ui.email })).toHaveLength(1)
     expect(c.about.socials).toEqual([])
     for (const name of ['X', 'LinkedIn', 'GitHub']) expect(within(main).queryByRole('link', { name })).toBeNull()
   })
 
-  it('ends by sending people to ChartLab', async () => {
+  it('ends with a consult call to action', async () => {
     const main = await page()
     const cta = within(main).getByRole('link', { name: c.ui.aboutCta })
-    expect(cta).toHaveAttribute('href', `http://localhost:3000/${lang}`)
-    expect(cta).not.toHaveAttribute('target')
+    expect(cta).toHaveAttribute('href', 'https://wa.me/6282184677520')
+  })
+
+  it('keeps the services on the homepage only', async () => {
+    await page()
+    expect(document.getElementById('services')).toBeNull()
+  })
+
+  it('links the ChartLab mention in the company intro to the ChartLab landing, in the same tab', async () => {
+    const main = await page()
+    const link = within(main.querySelector('[data-company-intro]') as HTMLElement).getByRole('link', { name: 'ChartLab' })
+    expect(link).toHaveAttribute('href', `http://localhost:3000/${lang}`)
+    expect(link).not.toHaveAttribute('target')
   })
 })

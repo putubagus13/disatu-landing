@@ -1,18 +1,16 @@
 import { useState } from 'react'
-import { useContent, useLang } from '@/i18n/use-content'
+import { useContent } from '@/i18n/use-content'
 import { Reveal } from '@/components/motion/reveal'
 import { LinkButton } from '@/components/ui/button'
 import { Brackets, SectionShell } from '@/components/ui/frame'
 import { contactLinks, formatPhone } from '@/lib/contact'
 import { FounderPhoto } from './founder-photo'
 import { ExperienceTimeline } from './experience-timeline'
-import { chartlabLandingHref } from '@/lib/site-links'
 
 type Panel = 'skills' | 'experience' | 'education'
 
 /** The founder: photo, name and a short summary. Skills, experience and education open on demand. */
 export function FounderSection() {
-  const lang = useLang()
   const { about, ui } = useContent()
   const f = about.founder
   const links = contactLinks(about.contact)
@@ -108,7 +106,7 @@ export function FounderSection() {
         )}
 
         <div className="mt-16 text-center">
-          <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
+          <LinkButton external href={links.whatsapp}>
             {ui.aboutCta}
           </LinkButton>
         </div>

@@ -1,18 +1,16 @@
 import { describe, it, expect } from 'vitest'
-import { screen, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
 import { renderWithRouter } from './utils'
 import { getContent } from '@/content'
 import { LANGS } from '@/i18n/lang'
 
 describe.each(LANGS)('home route %s', (lang) => {
   const c = getContent(lang)
-  it('renders sections in order with offer and title', async () => {
+  it('renders the Disatu sections in order, with the services title', async () => {
     await renderWithRouter(`/${lang}`)
-    await waitFor(() => expect(document.getElementById('chartlab')).not.toBeNull())
+    await waitFor(() => expect(document.getElementById('contact')).not.toBeNull())
     const ids = Array.from(document.querySelectorAll('main section[id]')).map((s) => s.id)
-    expect(ids).toEqual(['hero', 'workflow', 'chartlab', 'offer'])
-    expect(screen.getByRole('heading', { name: c.offer.title })).toBeInTheDocument()
-    expect(document.getElementById('services')).toBeNull() // personal service: lives on the About page
+    expect(ids).toEqual(['hero', 'services', 'contact'])
     await waitFor(() => expect(document.title).toBe(c.meta.homeTitle))
   })
   it('emits hreflang alternates', async () => {

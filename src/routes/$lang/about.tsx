@@ -4,7 +4,6 @@ import { getContent } from '@/content'
 import { isLang } from '@/i18n/lang'
 import { CompanyIntro } from '@/components/about/company-intro'
 import { FounderSection } from '@/components/about/founder-section'
-import { ServicesSection } from '@/components/sections/services-section'
 
 export const Route = createFileRoute('/$lang/about')({
   head: ({ params }) => {
@@ -28,7 +27,6 @@ function About() {
   return (
     <>
       <CompanyIntro />
-      <ServicesSection />
       <FounderSection />
     </>
   )

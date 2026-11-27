@@ -3,11 +3,8 @@ import { alternateLinks } from '@/i18n/alternates'
 import { getContent } from '@/content'
 import { isLang } from '@/i18n/lang'
 import { Hero } from '@/components/sections/hero'
-import { WorkflowSection } from '@/components/sections/workflow-section'
-import { EbookSection } from '@/components/sections/ebook-section'
-import { ChartLabSection } from '@/components/sections/chartlab-section'
-import { OfferCta } from '@/components/sections/offer-cta'
-import { FEATURES } from '@/content/flags'
+import { ServicesSection } from '@/components/sections/services-section'
+import { ContactCta } from '@/components/sections/contact-cta'
 
 export const Route = createFileRoute('/$lang/')({
   head: ({ params }) => {
@@ -31,10 +28,8 @@ function Home() {
   return (
     <>
       <Hero />
-      <WorkflowSection />
-      {FEATURES.ebook && <EbookSection />}
-      <ChartLabSection />
-      <OfferCta />
+      <ServicesSection />
+      <ContactCta />
     </>
   )
 }
