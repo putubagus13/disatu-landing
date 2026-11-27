@@ -29,6 +29,7 @@ export const siteEn: SiteContent = {
   brand: { name: 'Disatu', tagline: 'Websites and apps built around what you need.' },
   nav: [
     { label: 'Services', page: 'home', hash: 'services' },
+    { label: 'Portfolio', page: 'home', hash: 'portfolio' },
     { label: 'Process', page: 'home', hash: 'process' },
     { label: 'Products', page: 'home', hash: 'products' },
     { label: 'About', page: 'about' },
@@ -65,6 +66,55 @@ export const siteEn: SiteContent = {
         description:
           "Custom web apps such as online stores, dashboards, and other business systems.",
         icon: shared.serviceIcons[3],
+      },
+    ],
+  },
+  portfolio: {
+    tag: 'Portfolio',
+    title: 'Projects we have built',
+    subtitle: 'Two company profile websites and an organisation management dashboard, each for a different need.',
+    items: [
+      {
+        id: 'captivad',
+        name: 'Captivad',
+        kind: 'Company profile website',
+        description:
+          'A company profile website for a digital agency that connects brands with the right audiences through data, media and AI-powered experiences. The look is dark and confident, with one clear message up front so visitors see what is on offer right away.',
+        highlights: [
+          'A large headline message on the front page',
+          'Menu straight to profile, services, work, AI Experience and contact',
+          'A dark look that puts the technology side forward',
+        ],
+        imageAlt: 'Captivad website front page: a large "Where Reach Meets Intelligence" headline on a dark background',
+        visit: 'Visit captivad.co',
+      },
+      {
+        id: 'geoarthasemesta',
+        name: 'PT GEO Artha Semesta',
+        kind: 'Company profile website',
+        description:
+          'A company profile website for a national offshore and subsea services company, from operations and maintenance (O&M) to construction support. Services, equipment and project experience are laid out so prospective clients in oil & gas can judge the company\'s capability quickly.',
+        highlights: [
+          'An offshore operations photo opens the page',
+          'Sections for services, equipment and project experience',
+          'Language choice right in the menu',
+        ],
+        imageAlt: 'PT GEO Artha Semesta website front page: a vessel and offshore platform with a subsea solutions headline',
+        visit: 'Visit geoarthasemesta.com',
+      },
+      {
+        id: 'organization-dashboard',
+        name: 'Organisation Management Dashboard',
+        kind: 'Web application',
+        description:
+          'A dashboard for running an organisation in one place: member records, finances, and incoming and outgoing letters. Officers record bookkeeping, loans and member dues, then see a financial summary per period.',
+        highlights: [
+          'Member management, roles and access rights',
+          'Finance: bookkeeping, loans and member dues',
+          'Creating incoming and outgoing letters',
+          'Period financial summary that can be exported',
+        ],
+        imageAlt: 'Financial Summary page of an organisation dashboard: total cash, cash account balances and recent transactions',
       },
     ],
   },

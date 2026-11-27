@@ -1,5 +1,5 @@
-export type Section = 'hero' | 'services' | 'process' | 'products' | 'about' | 'contact'
-export type NavItem = { label: string; page: 'home' | 'about'; hash?: 'services' | 'process' | 'products' }
+export type Section = 'hero' | 'services' | 'portfolio' | 'process' | 'products' | 'about' | 'contact'
+export type NavItem = { label: string; page: 'home' | 'about'; hash?: 'services' | 'portfolio' | 'process' | 'products' }
 export type ServiceItem = { title: string; description: string; icon: 'web' | 'mobile' | 'backend' | 'webapp' }
 export type ProcessStepId = 'discovery' | 'proposal' | 'build' | 'launch' | 'support'
 export type ProcessStep = {
@@ -8,6 +8,17 @@ export type ProcessStep = {
   title: string
   description: string
   points: { label: string; text: string }[]
+}
+export type PortfolioItem = {
+  /** Also the screenshot's file name: /portfolio/<id>.webp. Live URLs sit in the component, keyed by id. */
+  id: 'captivad' | 'geoarthasemesta' | 'organization-dashboard'
+  name: string
+  kind: string
+  description: string
+  highlights: string[]
+  imageAlt: string
+  /** Label of the link to the live site. Absent for a project that has no public page. */
+  visit?: string
 }
 export type Product = {
   id: 'chartlab'
@@ -50,6 +61,7 @@ export type SiteContent = {
   nav: NavItem[]
   hero: { eyebrow: string; title: string; subtitle: string }
   services: { title: string; subtitle: string; contactLead: string; items: ServiceItem[] }
+  portfolio: { tag: string; title: string; subtitle: string; items: PortfolioItem[] }
   process: {
     tag: string
     title: string

@@ -29,6 +29,7 @@ export const siteId: SiteContent = {
   brand: { name: 'Disatu', tagline: 'Website dan aplikasi yang dibangun sesuai kebutuhanmu.' },
   nav: [
     { label: 'Layanan', page: 'home', hash: 'services' },
+    { label: 'Portofolio', page: 'home', hash: 'portfolio' },
     { label: 'Proses', page: 'home', hash: 'process' },
     { label: 'Produk', page: 'home', hash: 'products' },
     { label: 'Tentang', page: 'about' },
@@ -67,6 +68,55 @@ export const siteId: SiteContent = {
         description:
           "Web app sesuai kebutuhan, seperti toko online, dashboard, dan sistem bisnis lainnya.",
         icon: shared.serviceIcons[3],
+      },
+    ],
+  },
+  portfolio: {
+    tag: 'Portofolio',
+    title: 'Proyek yang sudah kami bangun',
+    subtitle: 'Dua website company profile dan satu dashboard manajemen organisasi, masing-masing untuk kebutuhan yang berbeda.',
+    items: [
+      {
+        id: 'captivad',
+        name: 'Captivad',
+        kind: 'Website company profile',
+        description:
+          'Website company profile untuk agensi digital yang menghubungkan merek dengan audiens lewat data, media, dan pengalaman berbasis AI. Tampilannya gelap dan tegas, dengan satu pesan utama di halaman depan supaya pengunjung langsung paham apa yang ditawarkan.',
+        highlights: [
+          'Pesan utama berukuran besar di halaman depan',
+          'Menu langsung ke profil, layanan, karya, AI Experience, dan kontak',
+          'Tampilan gelap yang menonjolkan sisi teknologi',
+        ],
+        imageAlt: 'Halaman depan website Captivad: judul besar "Where Reach Meets Intelligence" di latar gelap',
+        visit: 'Kunjungi captivad.co',
+      },
+      {
+        id: 'geoarthasemesta',
+        name: 'PT GEO Artha Semesta',
+        kind: 'Website company profile',
+        description:
+          'Website company profile perusahaan nasional di bidang layanan dan solusi lepas pantai dan bawah laut, dari operasi dan pemeliharaan (O&M) sampai dukungan konstruksi. Layanan, peralatan, dan pengalaman proyek ditata agar calon klien di industri minyak & gas bisa menilai kemampuan perusahaan dengan cepat.',
+        highlights: [
+          'Foto operasi lepas pantai sebagai pembuka halaman',
+          'Bagian layanan, peralatan, dan pengalaman proyek',
+          'Pilihan bahasa langsung dari menu',
+        ],
+        imageAlt: 'Halaman depan website PT GEO Artha Semesta: foto kapal dan anjungan lepas pantai dengan judul solusi bawah laut',
+        visit: 'Kunjungi geoarthasemesta.com',
+      },
+      {
+        id: 'organization-dashboard',
+        name: 'Dashboard Manajemen Organisasi',
+        kind: 'Aplikasi web',
+        description:
+          'Dashboard untuk mengelola organisasi dalam satu tempat: data anggota, keuangan, serta surat masuk dan keluar. Pengurus mencatat pembukuan, pinjaman, dan iuran anggota, lalu melihat ringkasan keuangan per periode.',
+        highlights: [
+          'Manajemen anggota, peran, dan hak akses',
+          'Keuangan: pembukuan, pinjaman, dan iuran anggota',
+          'Pembuatan surat masuk dan keluar',
+          'Ringkasan keuangan per periode yang bisa diekspor',
+        ],
+        imageAlt: 'Halaman Ringkasan Keuangan pada dashboard organisasi: total kas, saldo akun kas, dan transaksi terbaru',
       },
     ],
   },

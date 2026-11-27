@@ -35,8 +35,8 @@ describe.each(LANGS)('content %s', (lang) => {
   const f = FIXED[lang]
   it('brand', () => expect(c.brand.name).toBe('Disatu'))
   it('home title is about the services', () => expect(c.meta.homeTitle).toBe(f.title))
-  it('nav: services, process, products on home, then About', () => {
-    expect(c.nav.map((n) => [n.page, n.hash])).toEqual([['home', 'services'], ['home', 'process'], ['home', 'products'], ['about', undefined]])
+  it('nav: services, portfolio, process, products on home, then About', () => {
+    expect(c.nav.map((n) => [n.page, n.hash])).toEqual([['home', 'services'], ['home', 'portfolio'], ['home', 'process'], ['home', 'products'], ['about', undefined]])
   })
   it('four services', () => expect(c.services.items).toHaveLength(4))
   it('five process steps with the agreed labels, each with 2-3 points', () => {
@@ -93,6 +93,7 @@ describe('locale parity', () => {
     expect(en.services.items.map((i) => i.icon)).toEqual(id.services.items.map((i) => i.icon))
     expect(en.nav.map((x) => [x.page, x.hash])).toEqual(id.nav.map((x) => [x.page, x.hash]))
     expect(en.process.steps.map((s) => [s.id, s.points.length])).toEqual(id.process.steps.map((s) => [s.id, s.points.length]))
+    expect(en.portfolio.items.map((p) => [p.id, p.highlights.length, !!p.visit])).toEqual(id.portfolio.items.map((p) => [p.id, p.highlights.length, !!p.visit]))
     expect(en.products.items.map((p) => [p.id, p.name, p.features.length])).toEqual(id.products.items.map((p) => [p.id, p.name, p.features.length]))
   })
 })

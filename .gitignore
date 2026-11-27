@@ -16,3 +16,6 @@ todos.json
 
 # Vercel CLI
 .vercel
+
+# Original portfolio screenshots (8-9 MB each); the site serves the optimised copies in public/portfolio
+source-assets/

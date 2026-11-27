@@ -18,7 +18,7 @@ describe.each(['id', 'en'] as const)('SiteHeader %s', (lang) => {
     const header = await screen.findByRole('banner')
     const links = within(header).getAllByRole('link')
     const hrefOf = (name: string) => links.find((a) => a.textContent === name)?.getAttribute('href')
-    expect(c.nav.map((n) => hrefOf(n.label))).toEqual([`/${lang}#services`, `/${lang}#process`, `/${lang}#products`, `/${lang}/about`])
+    expect(c.nav.map((n) => hrefOf(n.label))).toEqual([`/${lang}#services`, `/${lang}#portfolio`, `/${lang}#process`, `/${lang}#products`, `/${lang}/about`])
     const consult = within(header).getByRole('link', { name: c.ui.consult })
     expect(consult).toHaveAttribute('href', 'https://wa.me/6282184677520')
     expect(links.some((a) => /chartlab/i.test(a.getAttribute('href') ?? ''))).toBe(false)
@@ -56,7 +56,7 @@ describe.each(['id', 'en'] as const)('SiteHeader %s', (lang) => {
     await waitFor(() => expect(menuBtn).toHaveAttribute('aria-expanded', 'false'))
     fireEvent.click(menuBtn)
     const menu = document.getElementById('mobile-menu')!
-    fireEvent.click(within(menu).getByRole('link', { name: c.nav[2].label }))
+    fireEvent.click(within(menu).getByRole('link', { name: c.nav[3].label }))
     await waitFor(() => expect(menuBtn).toHaveAttribute('aria-expanded', 'false'))
   })
 

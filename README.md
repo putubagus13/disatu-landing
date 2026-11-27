@@ -8,7 +8,7 @@ framer-motion, Vitest. Node 22.
 
 | Page | What it is |
 |---|---|
-| `/{lang}` | Hero, services, five-step work process, products (ChartLab), about teaser, contact |
+| `/{lang}` | Hero, services, portfolio, five-step work process, products (ChartLab), about teaser, contact |
 | `/{lang}/about` | About Disatu and its founder |
 | `/{lang}/chartlab` | Old address of the embedded ChartLab app: a redirect (307) to the app page on the ChartLab landing |
 
@@ -44,3 +44,7 @@ Production and Preview environments. `npm run build` stops when it is missing or
 All copy lives in `src/content/site.id.ts` and `site.en.ts` (same shape, checked by tests). The site states only real
 facts about Disatu. `tests/disatu-copy.test.ts` fails on invented clients, testimonials or client/project counts, and
 on trading copy outside the product card and About.
+
+## Portfolio screenshots
+
+The portfolio section shows `public/portfolio/<id>.webp` (1600 px wide, under 100 KB each). Keep the full-size originals in `source-assets/portfolio/` (git-ignored) and export with, for example, `cwebp -resize 1600 0 -q 80 original.png -o public/portfolio/<id>.webp`. Live site links are in `src/components/sections/portfolio-section.tsx`; the dashboard has none because it needs a login.
