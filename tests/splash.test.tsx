@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { readFileSync } from 'node:fs'
 import { act, cleanup, render, waitFor } from '@testing-library/react'
 
@@ -42,13 +42,19 @@ const loaderCss = css.slice(css.indexOf('/* ---- Disatu loader'))
 // not `[data-splash]`: the head script puts that attribute on <html> itself
 const overlay = () => document.querySelector('[data-splash-overlay]') as HTMLElement | null
 
+// The splash counts its waits from navigation start (performance.now()), so in a real page a slow hydration eats into
+// them. In a test worker that clock is the worker's age: late in a long run it is past the 5.5 s hard cap and the
+// splash leaves at once. Pin it to "just navigated" so every test sees the splash a fresh page would.
 beforeEach(() => {
+  vi.spyOn(performance, 'now').mockReturnValue(0)
   delete document.documentElement.dataset.splash
   document.documentElement.classList.remove('dark')
   sessionStorage.clear()
   glass = null
   mockGlass = true
 })
+
+afterEach(() => vi.restoreAllMocks())
 
 describe('splash screen', () => {
   it('is part of the app and covers the page on a first visit', async () => {
