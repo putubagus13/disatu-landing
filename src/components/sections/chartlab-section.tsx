@@ -4,7 +4,7 @@ import { LinkButton } from '@/components/ui/button'
 import { Reveal } from '@/components/motion/reveal'
 import { SectionShell, Tag } from '@/components/ui/frame'
 import { ChartLabVideo } from './chartlab-video'
-import { chartlabPath } from '@/lib/chartlab-embed'
+import { chartlabLandingHref } from '@/lib/site-links'
 
 const ICONS: Record<ChartLabFeature['icon'], React.ReactNode> = {
   chart: <path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7" />,
@@ -65,7 +65,7 @@ export function ChartLabSection() {
             ))}
           </ul>
           <div className="mt-10 text-center">
-            <LinkButton href={chartlabPath(lang)}>
+            <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
               {ui.tryFree}
             </LinkButton>
           </div>

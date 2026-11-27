@@ -2,7 +2,7 @@ import { useContent, useLang } from '@/i18n/use-content'
 import { LinkButton } from '@/components/ui/button'
 import { Reveal } from '@/components/motion/reveal'
 import { Brackets, SectionShell } from '@/components/ui/frame'
-import { chartlabPath } from '@/lib/chartlab-embed'
+import { chartlabLandingHref } from '@/lib/site-links'
 
 export function OfferCta() {
   const lang = useLang()
@@ -15,7 +15,7 @@ export function OfferCta() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{offer.title}</h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-muted">{offer.subtitle}</p>
           <div className="mt-8">
-            <LinkButton href={chartlabPath(lang)}>
+            <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
               {ui.tryFree}
             </LinkButton>
           </div>

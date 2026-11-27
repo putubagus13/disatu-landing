@@ -2,7 +2,7 @@ import { useContent, useLang } from "@/i18n/use-content";
 import { useTheme } from "@/theme/theme-provider";
 import { LinkButton } from "@/components/ui/button";
 import { HelixField } from "@/components/ui/helix-field";
-import { chartlabPath } from '@/lib/chartlab-embed'
+import { chartlabLandingHref } from '@/lib/site-links'
 
 export function Hero() {
   const lang = useLang();
@@ -39,7 +39,7 @@ export function Hero() {
             style={{ "--i": 3 } as React.CSSProperties}
             className="hero-rise mt-8 flex flex-wrap gap-3"
           >
-            <LinkButton href={chartlabPath(lang)}>
+            <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
               {ui.tryFree}
             </LinkButton>
             <LinkButton href={`/${lang}#chartlab`} variant="ghost">

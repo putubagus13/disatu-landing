@@ -5,6 +5,8 @@ type Props = {
   href: string
   variant?: 'primary' | 'secondary' | 'ghost'
   external?: boolean
+  /** External http(s) links open in a new tab unless this is false (links to our own sites stay in the same tab). */
+  newTab?: boolean
   children: React.ReactNode
   className?: string
 }
@@ -17,13 +19,13 @@ const variants = {
   ghost: `${base} border border-border text-fg hover:bg-surface`,
 }
 
-export function LinkButton({ href, variant = 'primary', external, children, className = '' }: Props) {
+export function LinkButton({ href, variant = 'primary', external, newTab = true, children, className = '' }: Props) {
   const cls = `${variants[variant]} ${className}`
   const label = variant === 'primary' ? <span>{children}</span> : children
   return (
     <motion.span className="inline-block" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
       {external ? (
-        <a href={href} {...(/^https?:/.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className={cls}>
+        <a href={href} {...(newTab && /^https?:/.test(href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className={cls}>
           {label}
         </a>
       ) : (

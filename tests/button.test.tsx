@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'node:fs'
-import { screen, waitFor, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
+import { LinkButton } from '@/components/ui/button'
 import { renderWithRouter } from './utils'
 import { getContent } from '@/content'
 
@@ -16,8 +17,22 @@ describe('LinkButton', () => {
     const cta = within(header).getByRole('link', { name: c.ui.openApp })
     expect(cta.className).toContain('shiny-cta')
     expect(cta.querySelector(':scope > span')?.textContent).toBe(c.ui.openApp)
-    expect(cta).toHaveAttribute('href', '/id/chartlab') // internal: the embedded page
+    expect(cta).toHaveAttribute('href', 'http://localhost:3000/id') // the ChartLab landing, same tab
     expect(cta).not.toHaveAttribute('target')
+  })
+
+  it('external links open in a new tab unless newTab is false', () => {
+    const { container } = render(
+      <>
+        <LinkButton external href="https://wa.me/1">a</LinkButton>
+        <LinkButton external newTab={false} href="https://x.vercel.app/id">b</LinkButton>
+      </>,
+    )
+    const [a, b] = Array.from(container.querySelectorAll('a'))
+    expect(a).toHaveAttribute('target', '_blank')
+    expect(a).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(b).not.toHaveAttribute('target')
+    expect(b).toHaveAttribute('href', 'https://x.vercel.app/id')
   })
 
   it('ghost buttons stay quiet outlines', async () => {

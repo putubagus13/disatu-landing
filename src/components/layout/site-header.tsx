@@ -8,7 +8,7 @@ import { AppLink } from '@/components/ui/app-link'
 import { LinkButton } from '@/components/ui/button'
 import { LangSwitch } from '@/components/ui/lang-switch'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
-import { chartlabPath } from '@/lib/chartlab-embed'
+import { chartlabLandingHref } from '@/lib/site-links'
 
 export function navHref(lang: string, item: NavItem) {
   return item.page === 'about' ? `/${lang}/about` : `/${lang}${item.hash ? `#${item.hash}` : ''}`
@@ -64,7 +64,7 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <LangSwitch />
           <ThemeToggle />
-          <LinkButton href={chartlabPath(lang)}>
+          <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
             {ui.openApp}
           </LinkButton>
         </div>
@@ -109,7 +109,7 @@ export function SiteHeader() {
                 <ThemeToggle />
               </div>
               <div className="mt-3" onClick={() => setOpen(false)}>
-                <LinkButton href={chartlabPath(lang)} className="w-full">
+                <LinkButton external newTab={false} href={chartlabLandingHref(lang)} className="w-full">
                   {ui.openApp}
                 </LinkButton>
               </div>

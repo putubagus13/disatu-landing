@@ -28,7 +28,7 @@ describe('Hero', () => {
       expect(h1s).toHaveLength(1)
       expect(h1s[0]).toHaveTextContent(c.hero.title)
       const open = within(hero).getByRole('link', { name: c.ui.tryFree })
-      expect(open).toHaveAttribute('href', `/${lang}/chartlab`)
+      expect(open).toHaveAttribute('href', `http://localhost:3000/${lang}`)
       expect(open).not.toHaveAttribute('target')
       expect(within(hero).getByRole('link', { name: c.ui.seeApp })).toHaveAttribute('href', `/${lang}#chartlab`)
       expect(within(hero).getByRole('img')).toHaveAttribute('aria-label', c.ui.visualLabel)

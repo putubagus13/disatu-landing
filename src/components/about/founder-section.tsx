@@ -6,7 +6,7 @@ import { Brackets, SectionShell } from '@/components/ui/frame'
 import { contactLinks, formatPhone } from '@/lib/contact'
 import { FounderPhoto } from './founder-photo'
 import { ExperienceTimeline } from './experience-timeline'
-import { chartlabPath } from '@/lib/chartlab-embed'
+import { chartlabLandingHref } from '@/lib/site-links'
 
 type Panel = 'skills' | 'experience' | 'education'
 
@@ -108,7 +108,7 @@ export function FounderSection() {
         )}
 
         <div className="mt-16 text-center">
-          <LinkButton href={chartlabPath(lang)}>
+          <LinkButton external newTab={false} href={chartlabLandingHref(lang)}>
             {ui.aboutCta}
           </LinkButton>
         </div>

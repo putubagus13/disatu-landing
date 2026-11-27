@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useRouterState } from '@tanstack/react-router'
 import { useReducedMotion } from 'framer-motion'
 import type { TubesApp } from 'threejs-components/build/cursors/tubes1.min.js'
 
@@ -13,8 +12,6 @@ const LIGHTS = ['#3fa37f', '#ffd33f', '#ffe58a', '#7ee0b8']
 const LOAD_DELAY_MS = 1200
 
 export function CursorTubes() {
-  // Off over the embedded ChartLab app: a full-screen WebGL layer on top of a chart app only costs CPU.
-  const onChartLab = useRouterState({ select: (st) => /\/chartlab\/?$/.test(st.location.pathname) })
   const reduced = useReducedMotion()
   const [enabled, setEnabled] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -24,8 +21,8 @@ export function CursorTubes() {
   useEffect(() => {
     const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
     const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData
-    setEnabled(finePointer && !reduced && !saveData && !onChartLab)
-  }, [reduced, onChartLab])
+    setEnabled(finePointer && !reduced && !saveData)
+  }, [reduced])
 
   // The library is ~775 KB, so it loads on its own chunk after the page has settled, never on the critical path.
   useEffect(() => {

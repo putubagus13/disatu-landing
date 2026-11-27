@@ -42,11 +42,11 @@ describe.each(LANGS)('ChartLabSection %s', (lang) => {
     expect(within(sec).getByText(c.chartlab.videoNote)).toBeInTheDocument()
   })
 
-  it('opens the embedded ChartLab page', async () => {
+  it('opens the ChartLab landing', async () => {
     await renderWithRouter(`/${lang}`)
     const sec = await section()
     const open = within(sec).getByRole('link', { name: c.ui.tryFree })
-    expect(open).toHaveAttribute('href', `/${lang}/chartlab`)
+    expect(open).toHaveAttribute('href', `http://localhost:3000/${lang}`)
     expect(open).not.toHaveAttribute('target')
   })
 })
