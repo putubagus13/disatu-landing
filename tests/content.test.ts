@@ -19,12 +19,14 @@ const FIXED = {
   id: {
     title: 'Disatu — Jasa Pembuatan Website & Aplikasi',
     steps: ['Konsultasi kebutuhan', 'Rancangan & penawaran', 'Desain & pengembangan', 'Uji & rilis', 'Dukungan setelah rilis'],
+    designServices: ['Desain Web', 'Desain Wireframe'],
     badge: 'Dibangun oleh Disatu',
     features: ['Backtesting gratis dengan Bar Replay', 'Statistik hasil backtest', 'Rekomendasi R:R terbaik'],
   },
   en: {
     title: 'Disatu — Website & App Development',
     steps: ['Discovery call', 'Scope & proposal', 'Design & build', 'Test & launch', 'Post-launch support'],
+    designServices: ['Web Design', 'Wireframe Design'],
     badge: 'Built by Disatu',
     features: ['Free backtesting with Bar Replay', 'Backtest statistics', 'Best R:R recommendation'],
   },
@@ -38,7 +40,11 @@ describe.each(LANGS)('content %s', (lang) => {
   it('nav: services, portfolio, process, products on home, then About', () => {
     expect(c.nav.map((n) => [n.page, n.hash])).toEqual([['home', 'services'], ['home', 'portfolio'], ['home', 'process'], ['home', 'products'], ['about', undefined]])
   })
-  it('four services', () => expect(c.services.items).toHaveLength(4))
+  it('six services: the four builds, then web design and wireframe design', () => {
+    expect(c.services.items).toHaveLength(6)
+    expect(c.services.items.map((i) => i.icon)).toEqual(['web', 'mobile', 'backend', 'webapp', 'design', 'wireframe'])
+    expect(c.services.items.slice(4).map((i) => i.title)).toEqual(f.designServices)
+  })
   it('five process steps with the agreed labels, each with 2-3 points', () => {
     expect(c.process.steps.map((s) => s.id)).toEqual(['discovery', 'proposal', 'build', 'launch', 'support'])
     expect(c.process.steps.map((s) => s.label)).toEqual(f.steps)
@@ -61,6 +67,8 @@ describe.each(LANGS)('content %s', (lang) => {
     expect(c.about.company.intro).toContain('ChartLab')
     expect(c.about.contact).toEqual({ phone: '+6282184677520', email: 'ptbagusraditya@gmail.com' })
     expect(c.about.founder.name).toBe('Putu Bagus Raditya')
+    expect(c.about.founder.role).toMatch(/Co-Founder/)
+    expect(c.about.company.facts.find((x) => x.value === 'Putu Bagus Raditya')?.label).toBe('Co-Founder')
     expect(c.about.founder.photo).toBe('/assets/profile-picture.JPG')
     expect(c.about.founder.skills.flatMap((g) => g.items)).toHaveLength(22)
     expect(c.about.founder.experiences[0].company).toBe('NoLimit Indonesia')

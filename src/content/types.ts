@@ -1,6 +1,6 @@
 export type Section = 'hero' | 'services' | 'portfolio' | 'process' | 'products' | 'about' | 'contact'
 export type NavItem = { label: string; page: 'home' | 'about'; hash?: 'services' | 'portfolio' | 'process' | 'products' }
-export type ServiceItem = { title: string; description: string; icon: 'web' | 'mobile' | 'backend' | 'webapp' }
+export type ServiceItem = { title: string; description: string; icon: 'web' | 'mobile' | 'backend' | 'webapp' | 'design' | 'wireframe' }
 export type ProcessStepId = 'discovery' | 'proposal' | 'build' | 'launch' | 'support'
 export type ProcessStep = {
   id: ProcessStepId

@@ -32,6 +32,20 @@ const ICONS: Record<ServiceItem['icon'], React.ReactNode> = {
       <circle cx="16.5" cy="19.5" r="1.2" />
     </>
   ),
+  // a pen drawing a line: web design
+  design: (
+    <>
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </>
+  ),
+  // a page split into header, side column and content blocks: the skeleton of a page
+  wireframe: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18M9 21V9" />
+    </>
+  ),
 }
 
 export function ServicesSection() {

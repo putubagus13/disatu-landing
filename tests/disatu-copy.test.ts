@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { LANGS } from '@/i18n/lang'
 import { getContent } from '@/content'
 
-// The Disatu site states only facts the owner gave (founded 2024, the founder, the four services, the principle,
+// The Disatu site states only facts the owner gave (founded 2024, the founder, the six services, the principle,
 // ChartLab as a product Disatu built). No invented clients, testimonials or counts, and no trading copy outside
 // the product card and About (the company intro names ChartLab; the founder is a trader).
 function strings(v: unknown, out: string[] = []): string[] {
@@ -12,6 +12,8 @@ function strings(v: unknown, out: string[] = []): string[] {
   return out
 }
 const TRADING = /trading|trader|backtest|R:R|saran keuangan|financial advice/i
+// Putu Bagus Raditya is Co-Founder, so no sentence may credit Disatu's founding to him alone.
+const SOLE_FOUNDER = /didirikan oleh|founded by|was founded by/i
 const INVENTED = /testimoni|testimonial|klien kami|our clients|\d+\+ (klien|clients|proyek|projects)/i
 
 describe.each(LANGS)('Disatu copy %s', (lang) => {
@@ -22,5 +24,8 @@ describe.each(LANGS)('Disatu copy %s', (lang) => {
   })
   it('invents no clients, testimonials or counts', () => {
     for (const s of strings(c)) expect(s).not.toMatch(INVENTED)
+  })
+  it('never says Disatu was founded by one person: he is Co-Founder', () => {
+    for (const s of strings(c)) expect(s).not.toMatch(SOLE_FOUNDER)
   })
 })

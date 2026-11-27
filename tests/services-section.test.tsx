@@ -6,7 +6,7 @@ import { LANGS } from '@/i18n/lang'
 
 describe.each(LANGS)('Disatu services on the homepage %s', (lang) => {
   const c = getContent(lang)
-  it('lists the four kinds of work, with working contact links', async () => {
+  it('lists the six kinds of work, with working contact links', async () => {
     await renderWithRouter(`/${lang}`)
     const sec = await waitFor(() => {
       const el = document.getElementById('services')
@@ -14,7 +14,7 @@ describe.each(LANGS)('Disatu services on the homepage %s', (lang) => {
       return el
     })
     expect(within(sec).getByRole('heading', { level: 2, name: c.services.title })).toBeInTheDocument()
-    expect(c.services.items.map((i) => i.icon)).toEqual(['web', 'mobile', 'backend', 'webapp'])
+    expect(c.services.items.map((i) => i.icon)).toEqual(['web', 'mobile', 'backend', 'webapp', 'design', 'wireframe'])
     for (const i of c.services.items) {
       expect(within(sec).getByRole('heading', { level: 3, name: i.title })).toBeInTheDocument()
       expect(within(sec).getByText(i.description)).toBeInTheDocument()

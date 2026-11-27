@@ -5,10 +5,10 @@ export const siteEn: SiteContent = {
   meta: {
     homeTitle: "Disatu — Website & App Development",
     homeDescription:
-      "Disatu builds company profile websites, mobile apps, backend systems, and web apps such as e-commerce, shaped around your business.",
+      "Disatu builds company profile websites, mobile apps, backend systems, and web apps such as e-commerce, plus web and wireframe design, shaped around your business.",
     aboutTitle: "About Disatu",
     aboutDescription:
-      "Disatu builds websites, mobile apps, backend systems, and web apps. Founded in 2024 by Putu Bagus Raditya.",
+      "Disatu builds websites, mobile apps, backend systems, and web apps. Founded in 2024, with Putu Bagus Raditya as Co-Founder.",
   },
   ui: {
     menuOpen: "Open menu",
@@ -47,7 +47,7 @@ export const siteEn: SiteContent = {
   services: {
     title: "Disatu Services",
     subtitle:
-      "From company profiles to backend systems, we help turn your idea into a digital product that fits your needs.",
+      "From design to backend systems, we help turn your idea into a digital product that fits your needs.",
     contactLead: "Got a project? Get in touch.",
     items: [
       {
@@ -71,6 +71,18 @@ export const siteEn: SiteContent = {
         description:
           "Custom web apps such as online stores, dashboards, and other business systems.",
         icon: shared.serviceIcons[3],
+      },
+      {
+        title: "Web Design",
+        description:
+          "Website designs that are clean, consistent with your brand, and comfortable to use on a phone or a desktop.",
+        icon: shared.serviceIcons[4],
+      },
+      {
+        title: "Wireframe Design",
+        description:
+          "Page skeletons that lay out flow and content before the final look is made, so everyone agrees on the needs from the start.",
+        icon: shared.serviceIcons[5],
       },
     ],
   },
@@ -250,7 +262,7 @@ export const siteEn: SiteContent = {
   aboutTeaser: {
     tag: "About Disatu",
     title: "Founded in 2024",
-    text: "Disatu was founded by Putu Bagus Raditya, a software engineer.",
+    text: "Putu Bagus Raditya, a software engineer, is Co-Founder of Disatu.",
     cta: "More about Disatu",
   },
   contactCta: {
@@ -263,18 +275,18 @@ export const siteEn: SiteContent = {
       title: "About Disatu",
       tag: "Founded in 2024",
       intro:
-        "Disatu builds company-profile websites, mobile apps, backend systems, and web apps such as e-commerce. We also develop ChartLab, a crypto trading platform that is free to use.",
+        "Disatu builds company-profile websites, mobile apps, backend systems, and web apps such as e-commerce, as well as web and wireframe design. We also develop ChartLab, a crypto trading platform that is free to use.",
       principleTitle: "Client needs come first",
       principle:
         "Disatu always puts the client’s needs first and looks for the best solution for every project.",
       facts: [
         { label: "Founded", value: shared.foundedYear },
-        { label: "Founder", value: "Putu Bagus Raditya" },
+        { label: "Co-Founder", value: "Putu Bagus Raditya" },
       ],
     },
     founder: {
       name: "Putu Bagus Raditya",
-      role: "Founder of Disatu",
+      role: "Co-Founder of Disatu",
       summary: "A crypto trader and a software engineer at NoLimit Indonesia.",
       location: "Bandung City, West Java",
       photo: shared.founderPhoto,

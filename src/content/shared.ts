@@ -10,7 +10,7 @@ export const shared = {
     blockchain: ['Solidity'],
     trading: ['Smart Money Concept'],
   },
-  serviceIcons: ['web', 'mobile', 'backend', 'webapp'] as const,
+  serviceIcons: ['web', 'mobile', 'backend', 'webapp', 'design', 'wireframe'] as const,
   founderPhoto: '/assets/profile-picture.JPG',
   foundedYear: '2024',
 }

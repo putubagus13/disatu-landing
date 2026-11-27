@@ -5,10 +5,10 @@ export const siteId: SiteContent = {
   meta: {
     homeTitle: "Disatu — Jasa Pembuatan Website & Aplikasi",
     homeDescription:
-      "Disatu membuat website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce, sesuai kebutuhan bisnismu.",
+      "Disatu membuat website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce, plus desain web dan wireframe, sesuai kebutuhan bisnismu.",
     aboutTitle: "Tentang Disatu",
     aboutDescription:
-      "Disatu menyediakan jasa pembuatan website, aplikasi mobile, sistem backend, dan web app. Berdiri sejak 2024, didirikan oleh Putu Bagus Raditya.",
+      "Disatu menyediakan jasa pembuatan website, aplikasi mobile, sistem backend, dan web app. Berdiri sejak 2024, dengan Putu Bagus Raditya sebagai Co-Founder.",
   },
   ui: {
     menuOpen: "Buka menu",
@@ -47,7 +47,7 @@ export const siteId: SiteContent = {
   services: {
     title: "Layanan Disatu",
     subtitle:
-      "Dari company profile sampai sistem backend, kami bantu wujudkan produk digital sesuai kebutuhanmu.",
+      "Dari desain sampai sistem backend, kami bantu wujudkan produk digital sesuai kebutuhanmu.",
     contactLead: "Punya proyek? Hubungi kami.",
     items: [
       {
@@ -73,6 +73,18 @@ export const siteId: SiteContent = {
         description:
           "Web app sesuai kebutuhan, seperti toko online, dashboard, dan sistem bisnis lainnya.",
         icon: shared.serviceIcons[3],
+      },
+      {
+        title: "Desain Web",
+        description:
+          "Desain tampilan website yang rapi dan sejalan dengan brand bisnismu, nyaman dipakai di layar HP maupun desktop.",
+        icon: shared.serviceIcons[4],
+      },
+      {
+        title: "Desain Wireframe",
+        description:
+          "Kerangka halaman yang menata alur dan isi sebelum tampilan akhirnya dibuat, supaya kebutuhan disepakati sejak awal.",
+        icon: shared.serviceIcons[5],
       },
     ],
   },
@@ -253,7 +265,7 @@ export const siteId: SiteContent = {
   aboutTeaser: {
     tag: "Tentang Disatu",
     title: "Berdiri sejak 2024",
-    text: "Disatu didirikan oleh Putu Bagus Raditya, seorang software engineer.",
+    text: "Putu Bagus Raditya, seorang software engineer, adalah Co-Founder Disatu.",
     cta: "Selengkapnya tentang Disatu",
   },
   contactCta: {
@@ -266,18 +278,18 @@ export const siteId: SiteContent = {
       title: "Tentang Disatu",
       tag: "Berdiri sejak 2024",
       intro:
-        "Disatu menyediakan jasa pembuatan website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce. Kami juga mengembangkan ChartLab, platform trading crypto yang gratis dipakai.",
+        "Disatu menyediakan jasa pembuatan website company profile, aplikasi mobile, sistem backend, dan web app seperti e-commerce, serta desain web dan wireframe. Kami juga mengembangkan ChartLab, platform trading crypto yang gratis dipakai.",
       principleTitle: "Kebutuhan klien nomor satu",
       principle:
         "Disatu selalu mengutamakan kebutuhan klien dan mencarikan solusi terbaik untuk setiap proyek.",
       facts: [
         { label: "Berdiri", value: shared.foundedYear },
-        { label: "Founder", value: "Putu Bagus Raditya" },
+        { label: "Co-Founder", value: "Putu Bagus Raditya" },
       ],
     },
     founder: {
       name: "Putu Bagus Raditya",
-      role: "Founder Disatu",
+      role: "Co-Founder Disatu",
       summary:
         "Trader crypto, sekaligus software engineer di NoLimit Indonesia.",
       location: "Kota Bandung, Jawa Barat",
