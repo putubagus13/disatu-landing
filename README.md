@@ -10,7 +10,7 @@ framer-motion, Vitest. Node 22.
 |---|---|
 | `/{lang}` | Hero, services, five-step work process, products (ChartLab), about teaser, contact |
 | `/{lang}/about` | About Disatu and its founder |
-| `/{lang}/chartlab` | Old address of the embedded ChartLab app: a permanent redirect to the app page on the ChartLab landing |
+| `/{lang}/chartlab` | Old address of the embedded ChartLab app: a redirect (307) to the app page on the ChartLab landing |
 
 ## Run it
 
@@ -27,8 +27,9 @@ npm test
 |---|---|---|---|
 | `VITE_CHARTLAB_LANDING_URL` | **required for production builds** | `http://localhost:3000` in dev | The ChartLab landing. The product card links to `<url>/<lang>`, and `/{lang}/chartlab` redirects to `<url>/<lang>/chartlab`. |
 
-`npm run build` stops with "VITE_CHARTLAB_LANDING_URL is not set" when it is missing, so a site whose links to
-ChartLab would be broken never ships.
+Use the **full URL including `https://`** (e.g. `https://chartlab-landing.vercel.app`), and set it for both the
+Production and Preview environments. `npm run build` stops when it is missing or is not an absolute http(s) URL (a bare
+`chartlab-landing.vercel.app` is rejected), so a site whose links to ChartLab would be broken never ships.
 
 ## Deploy order
 

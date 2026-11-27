@@ -16,6 +16,10 @@ describe('resolveSiteUrl', () => {
     expect(() => resolveSiteUrl('disatu.vercel.app', 'x', false)).toThrow(/absolute http/)
     expect(() => resolveSiteUrl('javascript:alert(1)', 'x', false)).toThrow(/absolute http/)
   })
+  it('names the variable in its errors when given one', () => {
+    expect(() => resolveSiteUrl('x.vercel.app', '', false, 'VITE_CHARTLAB_LANDING_URL')).toThrow(/VITE_CHARTLAB_LANDING_URL "x.vercel.app" must be an absolute http/)
+    expect(() => resolveSiteUrl(undefined, '', false, 'VITE_CHARTLAB_LANDING_URL')).toThrow(/VITE_CHARTLAB_LANDING_URL is not set/)
+  })
   it('refuses to guess outside development', () => {
     expect(() => resolveSiteUrl(undefined, 'x', false)).toThrow(/not set/)
   })

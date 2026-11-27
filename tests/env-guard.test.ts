@@ -22,6 +22,12 @@ describe('requireEnv (production build guard)', () => {
     process.env.VITE_CHARTLAB_LANDING_URL = '   '
     expect(() => run({ command: 'build', mode: 'production' })).toThrow(/VITE_CHARTLAB_LANDING_URL/)
   })
+  it('stops a production build when the value is not an absolute http(s) URL (e.g. a bare Vercel domain)', () => {
+    process.env.VITE_CHARTLAB_LANDING_URL = 'chartlab.vercel.app/'
+    expect(() => run({ command: 'build', mode: 'production' })).toThrow(/VITE_CHARTLAB_LANDING_URL.*absolute http/)
+    process.env.VITE_CHARTLAB_LANDING_URL = 'javascript:alert(1)'
+    expect(() => run({ command: 'build', mode: 'production' })).toThrow(/VITE_CHARTLAB_LANDING_URL.*absolute http/)
+  })
   it('lets the build through once it is set', () => {
     process.env.VITE_CHARTLAB_LANDING_URL = 'https://x.vercel.app'
     expect(() => run({ command: 'build', mode: 'production' })).not.toThrow()
