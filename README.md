@@ -12,6 +12,7 @@ framer-motion, Vitest. Node 22.
 | `/{lang}/about` | About Disatu and its founder |
 | `/sitemap.xml` | Every indexable page in both languages, with language alternates (built from `VITE_SITE_URL` and `src/seo/pages.ts`) |
 | `/robots.txt` | Lets every crawler in and points at the sitemap |
+| `/llms.txt` | A short guide to the public pages and services for tools that read it (generated from the content files) |
 | `/{lang}/chartlab` | Old address of the embedded ChartLab app: a redirect (307) to the app page on the ChartLab landing |
 
 ## Run it
@@ -46,7 +47,8 @@ Production and Preview environments. `npm run build` stops when it is missing or
 
 `src/seo/` owns what search engines and link previews see: `head.ts` (canonical, hreflang, Open Graph and Twitter
 cards, JSON-LD), `structured-data.ts` (the company as Schema.org data, built only from the content files),
-`sitemap.ts`, `robots.ts`, and `pages.ts` (the indexable pages). A new public page goes into `pages.ts` and uses
+`sitemap.ts`, `robots.ts`, `llms.ts` (the `/llms.txt` guide, built from the content files so it cannot drift), and
+`pages.ts` (the indexable pages). A new public page goes into `pages.ts` and uses
 `seoHead()` in its route. `/{lang}/chartlab` is left out of the sitemap because it redirects. The share image is
 `public/og-image.png` (1200x630).
 
