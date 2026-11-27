@@ -5,6 +5,8 @@ import { isLang } from '@/i18n/lang'
 import { Hero } from '@/components/sections/hero'
 import { ServicesSection } from '@/components/sections/services-section'
 import { ProcessSection } from '@/components/sections/process-section'
+import { ProductsSection } from '@/components/sections/products-section'
+import { AboutTeaser } from '@/components/sections/about-teaser'
 import { ContactCta } from '@/components/sections/contact-cta'
 
 export const Route = createFileRoute('/$lang/')({
@@ -31,6 +33,8 @@ function Home() {
       <Hero />
       <ServicesSection />
       <ProcessSection />
+      <ProductsSection />
+      <AboutTeaser />
       <ContactCta />
     </>
   )

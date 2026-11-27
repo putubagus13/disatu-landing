@@ -18,7 +18,7 @@ export function ProcessSection() {
   const progress = (active / (w.steps.length - 1)) * 100
 
   return (
-    <SectionShell id="process" bg="hatch" edge="y">
+    <SectionShell id="process" bg="dots" edge="y">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Tag>{w.tag}</Tag>
