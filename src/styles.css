@@ -107,35 +107,6 @@ section[id] {
   }
 }
 
-/* Workflow diagrams: decorative motion only, off for reduced-motion users. */
-@media (prefers-reduced-motion: no-preference) {
-  .wf-flow {
-    stroke-dasharray: 3 4;
-    animation: wf-dash 1.2s linear infinite;
-  }
-  .wf-pulse {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: wf-pulse 2s ease-in-out infinite;
-  }
-}
-@keyframes wf-dash {
-  to {
-    stroke-dashoffset: -14;
-  }
-}
-@keyframes wf-pulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: scale(1.8);
-  }
-}
-
 /* ---- Gradient + background utilities ---- */
 @utility bg-grad {
   background-image: var(--grad);

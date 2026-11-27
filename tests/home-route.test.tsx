@@ -10,7 +10,7 @@ describe.each(LANGS)('home route %s', (lang) => {
     await renderWithRouter(`/${lang}`)
     await waitFor(() => expect(document.getElementById('contact')).not.toBeNull())
     const ids = Array.from(document.querySelectorAll('main section[id]')).map((s) => s.id)
-    expect(ids).toEqual(['hero', 'services', 'contact'])
+    expect(ids).toEqual(['hero', 'services', 'process', 'contact'])
     await waitFor(() => expect(document.title).toBe(c.meta.homeTitle))
   })
   it('emits hreflang alternates', async () => {
