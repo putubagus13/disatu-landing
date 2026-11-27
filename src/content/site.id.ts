@@ -18,8 +18,6 @@ export const siteId: SiteContent = {
     themeDark: "Tema gelap",
     themeSystem: "Tema ikut sistem",
     switchLanguage: "Ganti bahasa",
-    visualLabel:
-      "Animasi garis tiga dimensi yang berubah bentuk secara berkala. Gerakkan kursor untuk berinteraksi",
     experienceTitle: "Pengalaman",
     skillsTitle: "Keahlian",
     educationTitle: "Pendidikan",

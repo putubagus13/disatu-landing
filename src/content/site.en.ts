@@ -18,8 +18,6 @@ export const siteEn: SiteContent = {
     themeDark: "Dark theme",
     themeSystem: "System theme",
     switchLanguage: "Switch language",
-    visualLabel:
-      "Animated three-dimensional lines that change shape every few seconds. Move your cursor to interact",
     experienceTitle: "Experience",
     skillsTitle: "Skills",
     educationTitle: "Education",

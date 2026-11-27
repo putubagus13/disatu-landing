@@ -47,7 +47,6 @@ export type SiteContent = {
     themeDark: string
     themeSystem: string
     switchLanguage: string
-    visualLabel: string
     experienceTitle: string
     skillsTitle: string
     educationTitle: string
