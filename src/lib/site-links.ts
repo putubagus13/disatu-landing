@@ -27,7 +27,8 @@ export function resolveSiteUrl(value: string | undefined, devDefault: string, is
 /** The ChartLab landing (VITE_CHARTLAB_LANDING_URL). Dev default: its local dev server on port 3000. */
 export const CHARTLAB_LANDING_URL: string = resolveSiteUrl(
   import.meta.env.VITE_CHARTLAB_LANDING_URL as string | undefined,
-  'http://localhost:3000',
+  // only in dev builds, so the local URL never ends up in a production bundle
+  import.meta.env.DEV ? 'http://localhost:3000' : '',
   import.meta.env.DEV,
 )
 
